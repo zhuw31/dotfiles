@@ -1,0 +1,8 @@
+[user]
+	email = meiyegg@gmail.com
+	name = zhuw31
+[core]
+	editor = nvim
+	ignorecase = true
+[includeIf "gitdir:~/shanbay/"]
+  path = ~/.config/git/config-work
