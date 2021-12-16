@@ -17,6 +17,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
