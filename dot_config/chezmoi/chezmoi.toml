@@ -1,5 +1,6 @@
 [git]
-    autoCommit = false
-    autoPush = false
+    autoCommit = true
+    autoPush = true
 [merge]
-    command = "lazygit"
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
