@@ -15,6 +15,13 @@ source ~/.zsh/z.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
