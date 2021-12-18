@@ -1,5 +1,5 @@
 alias v="nvim"
-alias n="nnn -deH"
+alias n="nnn -deHP p"
 alias lg="lazygit"
 alias sz="source ~/.zshrc"
 alias ns="npm start"
