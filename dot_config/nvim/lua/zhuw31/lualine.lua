@@ -1,19 +1,19 @@
 require('lualine').setup {
   options = {
-    theme = 'nord',
-    section_separators = '',
-    component_separators = '',
+    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
+    disabled_filetypes = { 'NvimTree' }
   },
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'filename', 'branch' },
-    lualine_c = { 'diff', 'g:coc_status' },
+    lualine_c = { 'diff', 'diagnostics' },
     lualine_x = {
-      'fileformat',
-      { 'o:encoding', upper = true },
+      'encoding',
+      'filetype',
     },
-    lualine_y = { 'filetype' },
-    lualine_z = { 'location', 'progress' },
+    lualine_y = { 'location', 'progress' },
+    lualine_z = { "os.date('%H:%M:%S')" },
   },
   tabline = {
     lualine_a = { 'filename' },

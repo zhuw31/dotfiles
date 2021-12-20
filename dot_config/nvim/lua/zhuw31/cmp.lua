@@ -1,6 +1,18 @@
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 
+vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
+vim.g.vsnip_filetypes = {
+    javascriptreact = {'javascript'},
+    typescriptreact = {'javascript', 'typescript'}
+}
+vim.cmd([[
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+]])
+
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -9,12 +21,12 @@ local lspkind = require('lspkind')
     },
     mapping = {
       ['<C-b>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-      ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+      ['<C-y>'] = cmp.config.disable,
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
         c = cmp.mapping.close(),
       }),
-      ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
