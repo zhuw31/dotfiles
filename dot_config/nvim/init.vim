@@ -33,6 +33,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 let mapleader = ' '
