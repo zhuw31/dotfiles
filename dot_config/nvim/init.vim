@@ -6,12 +6,14 @@ endif
 call plug#begin()
 Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
 Plug 'shaunsingh/nord.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'mhartington/oceanic-next'
 Plug 'folke/tokyonight.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -34,10 +36,12 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/toggleterm.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let mapleader = ' '
-colorscheme nord
+colorscheme tokyonight
 set hidden
 set number
 set relativenumber
@@ -119,10 +123,10 @@ let g:nvim_tree_icons = {
     \ 'default': '',
     \ }
 
-" load plugins
-lua require'zhuw31'
-
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
+
+" load plugins
+lua require'zhuw31'
