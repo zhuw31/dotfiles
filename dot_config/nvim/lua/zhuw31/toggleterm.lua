@@ -1,11 +1,15 @@
 require("toggleterm").setup {
+    open_mapping = [[<c-\>]],
+    start_in_insert = false,
+    insert_mappings = false,
+    shade_terminals = false,
     float_opts = {
-        width = vim.o.columns * 0.9,
-        height = vim.o.rows * 0.9
-    }
+        width = vim.api.nvim_win_get_width('%'),
+        height = vim.api.nvim_win_get_height('%')
+    },
 }
-local Terminal  = require('toggleterm.terminal').Terminal
 
+local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
   dir = "git_dir",
