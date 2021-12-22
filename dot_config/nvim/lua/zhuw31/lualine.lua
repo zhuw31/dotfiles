@@ -1,12 +1,12 @@
 local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+  return 'spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
 end
 
 require('lualine').setup {
   options = {
-    section_separators = { left = '', right = ''},
-    component_separators = { left = '', right = ''},
-    disabled_filetypes = { 'NvimTree' }
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    disabled_filetypes = { 'NvimTree' },
   },
   sections = {
     lualine_a = { 'mode' },
@@ -15,8 +15,5 @@ require('lualine').setup {
     lualine_x = { 'encoding', 'filetype', spaces },
     lualine_y = { 'location', 'progress' },
     lualine_z = { "os.date('%H:%M:%S')" },
-  },
-  tabline = {
-    lualine_a = { 'filename' },
   },
 }

@@ -1,19 +1,15 @@
-local nvim_lsp = require 'lspconfig'
 local lsp_installer = require 'nvim-lsp-installer'
 
 local servers = {
   'tsserver',
   'cssls',
-  'cssmodules_ls',
   'html',
   'jsonls',
-  'eslint',
-  'stylelint_lsp',
   'yamlls',
   'vimls',
   'sumneko_lua',
-  'bashls',
   'vuels',
+  'bashls',
 }
 
 -- auto install listed servers
@@ -27,13 +23,13 @@ end
 
 -- null-ls
 local null_ls = require 'null-ls'
-local prefer_local = { prefer_local = 'node_modules/.bin' }
+local null_ls_opts = { prefer_local = 'node_modules/.bin' }
 local sources = {
-  null_ls.builtins.formatting.prettier.with(prefer_local),
+  null_ls.builtins.formatting.prettier.with(null_ls_opts),
   null_ls.builtins.formatting.stylua,
-  null_ls.builtins.diagnostics.eslint.with(prefer_local),
-  null_ls.builtins.diagnostics.stylelint.with(prefer_local),
-  null_ls.builtins.code_actions.eslint.with(prefer_local),
+  null_ls.builtins.diagnostics.eslint.with(null_ls_opts),
+  null_ls.builtins.diagnostics.stylelint.with(null_ls_opts),
+  null_ls.builtins.code_actions.eslint.with(null_ls_opts),
 }
 
 null_ls.setup {
@@ -62,7 +58,7 @@ local config = {
   signs = {
     active = signs,
   },
-  update_in_insert = true,
+  update_in_insert = false,
   underline = true,
   severity_sort = true,
 }
@@ -90,12 +86,11 @@ local function lsp_highlight_document(client)
   end
 end
 
-local opts = { noremap = true, silent = true }
-
 local function lsp_keymaps(bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
+  local opts = { noremap = true, silent = true }
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -133,6 +128,7 @@ local function setup_tsserver()
       auto_inlay_hints = false,
     }
     ts_utils.setup_client(client)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>or', ':TSLspOrganize<CR>', { silent = true, noremap = true })
 
     on_attach(client, bufnr)
   end
@@ -153,22 +149,33 @@ lsp_installer.on_server_ready(function(server)
 
   local server_opts = {
     ['sumneko_lua'] = function()
-      default_opts.settings = {
-        lua = {
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-              [vim.fn.stdpath 'config' .. '/lua'] = true,
-            },
-          },
-        },
+      return require('lua-dev').setup {
+        lspconfig = default_opts,
       }
     end,
     ['tsserver'] = function()
       default_opts = setup_tsserver()
+    end,
+    ['yamlls'] = function()
+      return vim.tbl_deep_extend('force', default_opts, {
+        settings = {
+          yaml = {
+            hover = true,
+            completion = true,
+            validate = true,
+            schemas = require('schemastore').json.schemas(),
+          },
+        },
+      })
+    end,
+    ['jsonls'] = function()
+      return vim.tbl_deep_extend('force', default_opts, {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+          },
+        },
+      })
     end,
   }
 

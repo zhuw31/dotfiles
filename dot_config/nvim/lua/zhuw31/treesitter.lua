@@ -1,6 +1,6 @@
 -- treesitter
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+require('nvim-treesitter.configs').setup {
+  ensure_installed = 'maintained',
   highlight = {
     enable = true,
   },
@@ -8,10 +8,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
   indent = {
-    enable = true
+    enable = true,
   },
   context_commentstring = {
     enable = true,
-  }
+  },
 }
-
