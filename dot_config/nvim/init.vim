@@ -16,6 +16,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'b0o/schemastore.nvim'
+Plug 'folke/lua-dev.nvim'
+Plug 'akinsho/bufferline.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -95,12 +98,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 nnoremap <silent> <Leader>= :vert resize +10<CR>
 nnoremap <silent> <Leader>- :vert resize -10<CR>
 
-nnoremap <leader>ff :Telescope find_files<CR>
-nnoremap <leader>fl :Telescope live_grep<CR>
-nnoremap <leader>fb :Telescope buffers<CR>
-nnoremap <leader>fh :Telescope help_tags<CR>
-nnoremap <leader>gs :Telescope git_status<CR>
-
 " Better search
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -119,11 +116,6 @@ inoremap <c-j> <ESC>o
 inoremap <c-k> <ESC>O
 
 " Mappings for nvim-tree
-nnoremap <silent> <Leader>e :NvimTreeToggle<CR>
-
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ }
 
 augroup highlight_yank
     autocmd!
