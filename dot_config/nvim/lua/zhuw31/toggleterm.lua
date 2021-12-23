@@ -1,6 +1,5 @@
 require('toggleterm').setup {
   open_mapping = [[<c-\>]],
-  start_in_insert = false,
   insert_mappings = false,
   shade_terminals = false,
   float_opts = {
