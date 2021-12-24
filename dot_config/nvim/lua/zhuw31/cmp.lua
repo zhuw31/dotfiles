@@ -28,15 +28,21 @@ cmp.setup {
     },
     ['<Tab>'] = cmp.mapping.confirm { select = true },
   },
-  sources = cmp.config.sources({
+  sources = cmp.config.sources {
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'vsnip' },
-  }, {
-    { name = 'buffer' },
-  }),
+    { name = 'buffer', keyword_length = 5 },
+  },
   formatting = {
     format = lspkind.cmp_format {
-      with_text = false,
+      with_text = true,
+      menu = {
+        buffer = '[buf]',
+        nvim_lsp = '[LSP]',
+        path = '[path]',
+        vsnip = '[snip]',
+      },
       maxwidth = 50,
       before = function(_, vim_item)
         return vim_item
