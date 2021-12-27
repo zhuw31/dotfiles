@@ -15,11 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the use.lua file
 vim.cmd [[
     augroup packer_user_config
         autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+        autocmd BufWritePost use.lua source <afile> | PackerSync
     augroup end
 ]]
 
@@ -38,57 +38,52 @@ packer.init {
   },
 }
 
--- Install your plugins here
 return packer.startup(function(use)
-  -- Plugins here
-  use 'wbthomason/packer.nvim' -- Have packer manage itself
-  use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
-  use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
-
--- [[
-Plug 'dstein64/vim-startuptime', {'on': 'StartupTime'}
-Plug 'shaunsingh/nord.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'mhartington/oceanic-next'
-Plug 'folke/tokyonight.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
-Plug 'b0o/schemastore.nvim'
-Plug 'folke/lua-dev.nvim'
-Plug 'akinsho/bufferline.nvim'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'onsails/lspkind-nvim'
-Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'windwp/nvim-autopairs'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'digitaltoad/vim-pug'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'akinsho/toggleterm.nvim'
-Plug 'folke/trouble.nvim'
-Plug 'norcalli/nvim-colorizer.lua'
--- ]]
+  use 'wbthomason/packer.nvim'
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
+  use 'shaunsingh/nord.nvim'
+  use { 'folke/tokyonight.nvim', branch = 'main' }
+  use 'mhartington/oceanic-next'
+  use 'folke/tokyonight.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'b0o/schemastore.nvim'
+  use 'folke/lua-dev.nvim'
+  use 'akinsho/bufferline.nvim'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+  use 'onsails/lspkind-nvim'
+  use 'hoob3rt/lualine.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'editorconfig/editorconfig-vim'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'windwp/nvim-autopairs'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'digitaltoad/vim-pug'
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
+  use 'mzlogin/vim-markdown-toc'
+  use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle' }
+  use 'lewis6991/gitsigns.nvim'
+  use 'akinsho/toggleterm.nvim'
+  use { 'folke/trouble.nvim', cmd = 'Trouble' }
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  -- Put this at the end after all use
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
