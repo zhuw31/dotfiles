@@ -42,12 +42,10 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use { 'dstein64/vim-startuptime', cmd = 'StartupTime' }
+  use 'dstein64/vim-startuptime'
   use 'shaunsingh/nord.nvim'
   use { 'folke/tokyonight.nvim', branch = 'main' }
   use 'mhartington/oceanic-next'
-  use 'folke/tokyonight.nvim'
-  use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'neovim/nvim-lspconfig'
@@ -76,10 +74,10 @@ return packer.startup(function(use)
   use 'digitaltoad/vim-pug'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
   use 'mzlogin/vim-markdown-toc'
-  use { 'kyazdani42/nvim-tree.lua', cmd = 'NvimTreeToggle' }
+  use 'kyazdani42/nvim-tree.lua'
   use 'lewis6991/gitsigns.nvim'
   use 'akinsho/toggleterm.nvim'
-  use { 'folke/trouble.nvim', cmd = 'Trouble' }
+  use 'folke/trouble.nvim'
   use 'norcalli/nvim-colorizer.lua'
 
   -- Automatically set up your configuration after cloning packer.nvim

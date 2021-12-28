@@ -1,4 +1,32 @@
-local lsp_installer = require 'nvim-lsp-installer'
+local status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not status_ok then
+  return
+end
+
+local null_ls_status_ok, null_ls = pcall(require, 'null-ls')
+if not null_ls_status_ok then
+  return
+end
+
+local cmp_nvim_lsp_status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if not cmp_nvim_lsp_status_ok then
+  return
+end
+
+local ts_util_status_ok, ts_utils = pcall(require, 'nvim-lsp-ts-utils')
+if not ts_util_status_ok then
+  return
+end
+
+local json_sheme_status_ok, schemastore = pcall(require, 'schemastore')
+if not json_sheme_status_ok then
+  return
+end
+
+local lua_dev_status_ok, lua_dev = pcall(require, 'lua-dev')
+if not lua_dev_status_ok then
+  return
+end
 
 local servers = {
   'tsserver',
@@ -22,7 +50,6 @@ for _, name in pairs(servers) do
 end
 
 -- null-ls
-local null_ls = require 'null-ls'
 local sources = {
   null_ls.builtins.formatting.prettierd,
   null_ls.builtins.formatting.stylua,
@@ -115,10 +142,9 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 -- ts-util
-local ts_utils = require 'nvim-lsp-ts-utils'
 local function setup_tsserver()
   local init_options = ts_utils.init_options
   local ts_on_attach = function(client, bufnr)
@@ -148,7 +174,7 @@ lsp_installer.on_server_ready(function(server)
 
   local server_opts = {
     ['sumneko_lua'] = function()
-      return require('lua-dev').setup {
+      return lua_dev.setup {
         lspconfig = vim.tbl_deep_extend('force', default_opts, {}),
       }
     end,
@@ -162,7 +188,7 @@ lsp_installer.on_server_ready(function(server)
             hover = true,
             completion = true,
             validate = true,
-            schemas = require('schemastore').json.schemas(),
+            schemas = schemastore.json.schemas(),
           },
         },
       })
@@ -171,7 +197,7 @@ lsp_installer.on_server_ready(function(server)
       return vim.tbl_deep_extend('force', default_opts, {
         settings = {
           json = {
-            schemas = require('schemastore').json.schemas(),
+            schemas = schemastore.json.schemas(),
             format = {
               enable = false,
             },

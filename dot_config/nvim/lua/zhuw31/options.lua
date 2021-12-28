@@ -11,39 +11,9 @@ g.loaded_perl_provider = 0
 g.python_host_prog = '/usr/bin/python'
 g.python3_host_prog = '/usr/local/bin/python3'
 
--- Disable some built-in plugins we don't want
-local disabled_built_ins = {
-  'gzip',
-  'fzf',
-  '2html_plugin',
-  'man',
-  'matchit',
-  'matchparen',
-  'shada_plugin',
-  'tarPlugin',
-  'tar',
-  'zipPlugin',
-  'zip',
-  'netrw',
-  'netrwPlugin',
-}
-for _, builtin in pairs(disabled_built_ins) do
-  g['loaded_' .. builtin] = 1
-end
-
--- Set colorscheme
-cmd [[colorscheme tokyonight]]
-
--- Highlight when yank
-cmd [[
-    augroup highlight_yank
-        autocmd!
-        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
-    augroup END
-]]
-
 -- options
 local options = {
+  termguicolors = true,
   hidden = false,
   number = true,
   relativenumber = true,
@@ -57,7 +27,7 @@ local options = {
   splitbelow = true,
   ignorecase = true,
   smartcase = true,
-  nohlsearch = true,
+  hlsearch = false,
   switchbuf = { 'useopen', 'usetab' },
   updatetime = 100,
   inccommand = 'split',
@@ -68,7 +38,7 @@ local options = {
   foldexpr = 'nvim_treesitter#foldexpr()',
   signcolumn = 'yes:1',
   pumheight = 10,
-  list = [[listchars=tab:\|\ ,trail:·]],
+  list = true,
   backup = false,
   wrap = false,
   writebackup = false,
@@ -78,8 +48,24 @@ local options = {
   swapfile = false,
 }
 
-opt.shortmess:append 'c'
-
 for opt_k, opt_v in pairs(options) do
   opt[opt_k] = opt_v
 end
+opt.shortmess:append 'c'
+
+-- Set colorscheme
+local colorscheme_ok = pcall(require, 'tokyonight')
+if colorscheme_ok then
+  cmd [[colorscheme tokyonight]]
+end
+
+-- Highlight when yank
+cmd [[
+    augroup highlight_yank
+        autocmd!
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+    augroup END
+]]
+
+-- windows to close with "q"
+cmd [[autocmd FileType help,startuptime,lspinfo nnoremap <buffer><silent> q :close<CR>]]

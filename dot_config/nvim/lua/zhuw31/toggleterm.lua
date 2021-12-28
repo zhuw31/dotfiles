@@ -1,4 +1,16 @@
-require('toggleterm').setup {
+local status_ok, toggleterm = pcall(require, 'toggleterm')
+if not status_ok then
+  return
+end
+
+local terminal_status_ok, terminal = pcall(require, 'toggleterm.terminal')
+if not terminal_status_ok then
+  return
+end
+
+local utils = require 'zhuw31.utils'
+
+toggleterm.setup {
   open_mapping = [[<c-\>]],
   insert_mappings = false,
   shade_terminals = false,
@@ -8,7 +20,7 @@ require('toggleterm').setup {
   },
 }
 
-local Terminal = require('toggleterm.terminal').Terminal
+local Terminal = terminal.Terminal
 local lazygit = Terminal:new {
   cmd = 'lazygit',
   dir = 'git_dir',
@@ -23,4 +35,4 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>lg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+utils.n_map('<leader>lg', [[<cmd>lua _lazygit_toggle()<CR>]])

@@ -1,12 +1,14 @@
-local opts = { silent = true, noremap = true }
-local function n_map(key, cmd)
-  return vim.api.nvim_set_keymap('n', key, cmd, opts)
+local status_ok, bufferline = pcall(require, 'bufferline')
+if not status_ok then
+  return
 end
 
-n_map('[b', '<cmd>BufferLineCyclePrev<CR>')
-n_map(']b', '<cmd>BufferLineCycleNext<CR>')
+local utils = require 'zhuw31.utils'
 
-require('bufferline').setup {
+utils.n_map('[b', '<cmd>BufferLineCyclePrev<CR>')
+utils.n_map(']b', '<cmd>BufferLineCycleNext<CR>')
+
+bufferline.setup {
   options = {
     show_close_icon = true,
     show_buffer_close_icons = false,

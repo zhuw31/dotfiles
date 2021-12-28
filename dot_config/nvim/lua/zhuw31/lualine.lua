@@ -1,8 +1,13 @@
+local status_ok, lualine = pcall(require, 'lualine')
+if not status_ok then
+  return
+end
+
 local spaces = function()
   return 'spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
 end
 
-require('lualine').setup {
+lualine.setup {
   options = {
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },

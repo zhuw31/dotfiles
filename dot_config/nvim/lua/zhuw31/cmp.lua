@@ -1,5 +1,12 @@
-local cmp = require 'cmp'
-local lspkind = require 'lspkind'
+local status_ok, cmp = pcall(require, 'cmp')
+if not status_ok then
+  return
+end
+
+local lsp_kind_status_ok, lspkind = pcall(require, 'lspkind')
+if not lsp_kind_status_ok then
+  return
+end
 
 vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
 vim.g.vsnip_filetypes = {
