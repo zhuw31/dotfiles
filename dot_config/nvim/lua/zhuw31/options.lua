@@ -14,13 +14,14 @@ g.python3_host_prog = '/usr/local/bin/python3'
 -- options
 local options = {
   termguicolors = true,
-  hidden = false,
+  hidden = true,
   number = true,
   relativenumber = true,
   expandtab = true,
   tabstop = indent,
   shiftwidth = indent,
   smartindent = true,
+  autoindent = false,
   foldenable = false,
   matchtime = 2,
   splitright = true,
@@ -46,6 +47,7 @@ local options = {
   sidescrolloff = 5,
   guicursor = 'a:block',
   swapfile = false,
+  mouse = 'n',
 }
 
 for opt_k, opt_v in pairs(options) do

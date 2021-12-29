@@ -11,5 +11,5 @@ vim.g.nvim_tree_icons = {
 }
 
 nvim_tree.setup {
-  update_focused_file = { enable = true },
+  update_focused_file = { enable = false },
 }

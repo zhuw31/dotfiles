@@ -11,9 +11,11 @@ end
 local utils = require 'zhuw31.utils'
 
 toggleterm.setup {
-  open_mapping = [[<c-\>]],
-  insert_mappings = false,
+  open_mapping = [[<c-t>]],
+  insert_mappings = true,
+  start_in_insert = false,
   shade_terminals = false,
+  direction = 'horizontal',
   float_opts = {
     width = vim.api.nvim_win_get_width '%',
     height = vim.api.nvim_win_get_height '%',
@@ -27,6 +29,7 @@ local lazygit = Terminal:new {
   direction = 'float',
   -- function to run on opening the terminal
   on_open = function(term)
+    vim.cmd [[startinsert!]]
     vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
   end,
 }
