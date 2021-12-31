@@ -41,7 +41,7 @@ local options = {
   pumheight = 10,
   list = true,
   backup = false,
-  wrap = false,
+  wrap = true,
   writebackup = false,
   scrolloff = 5,
   sidescrolloff = 5,
@@ -56,9 +56,10 @@ end
 opt.shortmess:append 'c'
 
 -- Set colorscheme
-local colorscheme_ok = pcall(require, 'tokyonight')
+local colorscheme = 'tokyonight'
+local colorscheme_ok = pcall(require, colorscheme)
 if colorscheme_ok then
-  cmd [[colorscheme tokyonight]]
+  cmd('colorscheme ' .. colorscheme)
 end
 
 -- Highlight when yank
