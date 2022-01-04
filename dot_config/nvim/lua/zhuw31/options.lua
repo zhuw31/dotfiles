@@ -21,7 +21,7 @@ local options = {
   tabstop = indent,
   shiftwidth = indent,
   smartindent = true,
-  autoindent = false,
+  autoindent = true,
   foldenable = false,
   matchtime = 2,
   splitright = true,
@@ -45,7 +45,6 @@ local options = {
   writebackup = false,
   scrolloff = 5,
   sidescrolloff = 5,
-  guicursor = 'a:block',
   swapfile = false,
   mouse = 'n',
 }

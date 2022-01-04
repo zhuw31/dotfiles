@@ -137,6 +137,9 @@ local function lsp_keymaps(bufnr)
 end
 
 local on_attach = function(client, bufnr)
+  -- disable lsp format
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
