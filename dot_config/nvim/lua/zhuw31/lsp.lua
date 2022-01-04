@@ -151,7 +151,6 @@ capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 local function setup_tsserver()
   local init_options = ts_utils.init_options
   local ts_on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
     ts_utils.setup {
       auto_inlay_hints = false,
     }
