@@ -44,6 +44,7 @@ local options = {
   wrap = true,
   writebackup = false,
   scrolloff = 5,
+  guicursor = 'a:block',
   sidescrolloff = 5,
   swapfile = false,
   mouse = 'n',
