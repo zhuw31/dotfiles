@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'ray-x/lsp_signature.nvim'
   use 'b0o/schemastore.nvim'
   use 'folke/lua-dev.nvim'
   use 'akinsho/bufferline.nvim'
