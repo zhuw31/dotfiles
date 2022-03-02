@@ -16,6 +16,7 @@ alias ygl="yarn global list"
 alias yo="yarn outdated"
 alias gs="git status"
 function gc { git commit -m "$@"; }
+alias gcb="git checkout -b"
 alias gp="git push"
 alias gl="git pull"
 alias ga="git add ."
