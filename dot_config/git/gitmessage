@@ -1,32 +1,23 @@
-# Title: Summary, imperative, start upper case, don't end with a period
-# No more than 50 chars. #### 50 chars is here:  #
 
-# Remember blank line between title and body.
-
-# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
-# Wrap at 72 chars. ################################## which is here:  #
-
-# At the end: Include Co-authored-by for all contributors. 
-# Include at least one empty line before it. Format: 
-# Co-authored-by: name <user@users.noreply.github.com>
+# <type>[optional scope]: <description>
 #
-# How to Write a Git Commit Message:
-# https://chris.beams.io/posts/git-commit/
+# [optional body]
 #
-# 1. Separate subject from body with a blank line
-# 2. Limit the subject line to 50 characters
-# 3. Capitalize the subject line
-# 4. Do not end the subject line with a period
-# 5. Use the imperative mood in the subject line
-# 6. Wrap the body at 72 characters
-# 7. Use the body to explain what and why vs. how
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the comit.
+# [optional footer(s)]
 #
-# On branch master
-# Your branch is up to date with 'origin/main'.
+# The commit contains the following structural elements, to communicate int
+# ent to the consumers of your library:
 #
-# Changes to be committed:
-#       new file:   installation.md
-#
+# 1. fix: a commit of the type fix patches a bug in your codebase (this cor
+#    relates with PATCH in Semantic Versioning).
+# 2. feat: a commit of the type feat introduces a new feature to the codeba
+#    se (this correlates with MINOR in Semantic Versioning).
+# 3. BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appen
+#    ds a ! after the type/scope, introduces a breaking API change (correla
+#    ting with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part
+#    of commits of any type.
+# 4. types other than fix: and feat: are allowed, for example @commitlint/c
+#    onfig-conventional (based on the the Angular convention) recommends bu
+#    ild:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
+# 5. footers other than BREAKING CHANGE: <description> may be provided and 
+#    follow a convention similar to git trailer format.
