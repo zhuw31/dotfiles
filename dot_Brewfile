@@ -36,6 +36,7 @@ brew "python@3.10"
 brew "python@3.7"
 brew "redis", restart_service: true
 brew "ripgrep"
+brew "starship"
 brew "subversion"
 brew "the_silver_searcher"
 brew "tmux"

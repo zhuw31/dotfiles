@@ -1,13 +1,4 @@
-# Load version control information
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' check-for-changes true formats '%b (%a) %m%u%c'
-
-# Set up the prompt (with git branch name)
-setopt PROMPT_SUBST
-PROMPT='%B%F{#88C0D0}%~%f%b %F{#EBCB8B}${vcs_info_msg_0_}%f > '
+eval "$(starship init zsh)"
 eval "$(fnm env)"
 
 source ~/.zsh/zsh-alias.zsh
