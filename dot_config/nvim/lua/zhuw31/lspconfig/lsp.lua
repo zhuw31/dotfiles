@@ -33,6 +33,7 @@ local servers = {
   'sumneko_lua',
   'vuels',
   'bashls',
+  'tailwindcss',
 }
 
 -- auto install listed servers
