@@ -28,13 +28,13 @@ brew "lazygit"
 brew "luajit", args: ["HEAD"]
 brew "luarocks"
 brew "moreutils"
-brew "mysql", restart_service: true
+brew "mysql",
 brew "neovim"
 brew "pdfcpu"
 brew "pyenv"
 brew "python@3.10"
 brew "python@3.7"
-brew "redis", restart_service: true
+brew "redis",
 brew "ripgrep"
 brew "starship"
 brew "subversion"
@@ -53,7 +53,6 @@ cask "font-dm-mono"
 cask "font-fira-code"
 cask "font-new-york"
 cask "font-roboto-mono"
-cask "font-sf-mono-nerd-font"
 cask "font-source-code-pro"
 cask "google-chrome"
 cask "notion"
