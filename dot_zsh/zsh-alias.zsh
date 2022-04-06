@@ -26,3 +26,4 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --r
 alias c="chezmoi"
 alias k="kubectl"
 alias kcu="kubectl config use-context"
+alias kcn="kubectl config set-context --current --namespace"
