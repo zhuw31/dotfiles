@@ -57,7 +57,7 @@ end
 opt.shortmess:append 'c'
 
 -- Set colorscheme
-local colorscheme = 'tokyonight'
+local colorscheme = 'nord'
 local colorscheme_ok = pcall(require, colorscheme)
 if colorscheme_ok then
   cmd('colorscheme ' .. colorscheme)
