@@ -28,13 +28,13 @@ brew "lazygit"
 brew "luajit", args: ["HEAD"]
 brew "luarocks"
 brew "moreutils"
-brew "mysql",
+brew "mysql"
 brew "neovim"
 brew "pdfcpu"
 brew "pyenv"
 brew "python@3.10"
 brew "python@3.7"
-brew "redis",
+brew "redis"
 brew "ripgrep"
 brew "starship"
 brew "subversion"
