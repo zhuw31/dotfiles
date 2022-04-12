@@ -12,4 +12,8 @@ vim.g.nvim_tree_icons = {
 
 nvim_tree.setup {
   update_focused_file = { enable = false },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
 }
