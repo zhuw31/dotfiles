@@ -10,6 +10,7 @@ utils.n_map('<S-l>', '<cmd>BufferLineCycleNext<CR>')
 
 bufferline.setup {
   options = {
+    mode = 'tab',
     show_close_icon = true,
     show_buffer_close_icons = false,
     diagnostics = 'nvim_lsp',
