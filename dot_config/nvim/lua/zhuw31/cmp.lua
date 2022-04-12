@@ -45,10 +45,10 @@ cmp.setup {
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
-        buffer = '[buf]',
+        buffer = '[BUF]',
         nvim_lsp = '[LSP]',
-        path = '[path]',
-        vsnip = '[snip]',
+        path = '[PATH]',
+        vsnip = '[SNIP]',
       },
       maxwidth = 50,
       before = function(_, vim_item)
