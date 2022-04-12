@@ -57,7 +57,7 @@ end
 opt.shortmess:append 'c'
 
 -- Set colorscheme
-local colorscheme = 'nord'
+local colorscheme = 'tokyonight'
 local colorscheme_ok = pcall(require, colorscheme)
 if colorscheme_ok then
   cmd('colorscheme ' .. colorscheme)
@@ -72,4 +72,4 @@ cmd [[
 ]]
 
 -- windows to close with "q"
-cmd [[autocmd FileType help,startuptime,lspinfo nnoremap <buffer><silent> q :close<CR>]]
+cmd [[autocmd FileType help,startuptime,lspinfo,qf nnoremap <buffer><silent> q :close<CR>]]
