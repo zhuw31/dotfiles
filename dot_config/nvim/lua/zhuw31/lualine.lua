@@ -64,10 +64,10 @@ lualine.setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'filename', 'branch' },
-    lualine_c = { diff, 'diagnostics' },
-    lualine_x = { lsp, encoding, 'filetype' },
-    lualine_y = { spaces, 'location', 'progress' },
-    lualine_z = { "os.date('%H:%M:%S')" },
+    lualine_b = { 'filename', 'branch', diff },
+    lualine_c = { 'diagnostics' },
+    lualine_x = { lsp },
+    lualine_y = { encoding, 'filetype', spaces },
+    lualine_z = { 'location', 'progress' },
   },
 }
