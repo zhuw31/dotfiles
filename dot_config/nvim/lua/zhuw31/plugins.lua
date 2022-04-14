@@ -78,7 +78,6 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   use 'lewis6991/gitsigns.nvim'
   use 'akinsho/toggleterm.nvim'
-  use 'norcalli/nvim-colorizer.lua'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all use
