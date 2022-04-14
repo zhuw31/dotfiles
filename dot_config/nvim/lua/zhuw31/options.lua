@@ -48,7 +48,7 @@ local options = {
   sidescrolloff = 5,
   swapfile = false,
   mouse = 'n',
-  wrapscan = false,
+  wrapscan = true,
 }
 
 for opt_k, opt_v in pairs(options) do
