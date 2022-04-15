@@ -1,6 +1,7 @@
 alias v="nvim"
 alias n="nnn -deHP p"
 alias lg="lazygit"
+alias la="ls -la"
 alias sz="source ~/.zshrc"
 alias ns="npm start"
 alias ngl="npm ls --depth=0 -g"
