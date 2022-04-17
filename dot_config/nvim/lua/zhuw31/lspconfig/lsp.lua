@@ -24,6 +24,7 @@ if not lsp_installer_ok then
 end
 
 local servers = {
+  'clangd',
   'tsserver',
   'cssls',
   'html',
