@@ -17,8 +17,8 @@ toggleterm.setup {
   shade_terminals = false,
   direction = 'horizontal',
   float_opts = {
-    width = vim.api.nvim_win_get_width '%',
-    height = vim.api.nvim_win_get_height '%',
+    width = math.floor(vim.api.nvim_win_get_width(0) * 0.9),
+    height = math.floor(vim.api.nvim_win_get_height(0) * 0.9),
   },
 }
 

@@ -3,25 +3,39 @@ if not status_ok then
   return
 end
 
-local lsp_kind_status_ok, lspkind = pcall(require, 'lspkind')
-if not lsp_kind_status_ok then
-  return
-end
-
 vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
 vim.g.vsnip_filetypes = {
   javascriptreact = { 'javascript' },
   typescriptreact = { 'javascript', 'typescript' },
 }
 
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
-end
-
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
+local kind_icons = {
+  Text = '',
+  Method = '',
+  Function = '',
+  Constructor = '',
+  Field = '',
+  Variable = '',
+  Class = 'ﴯ',
+  Interface = '',
+  Module = '',
+  Property = 'ﰠ',
+  Unit = '',
+  Value = '',
+  Enum = '',
+  Keyword = '',
+  Snippet = '',
+  Color = '',
+  File = '',
+  Reference = '',
+  Folder = '',
+  EnumMember = '',
+  Constant = '',
+  Struct = '',
+  Event = '',
+  Operator = '',
+  TypeParameter = '',
+}
 
 vim.cmd [[
 imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
@@ -36,6 +50,10 @@ cmp.setup {
       vim.fn['vsnip#anonymous'](args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -43,11 +61,11 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<Tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.confirm({ select = true })
-        else
-            fallback()
-        end
+      if cmp.visible() then
+        cmp.confirm { select = true }
+      else
+        fallback()
+      end
     end, {
       'i',
       's',
@@ -57,21 +75,19 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'vsnip' },
-    { name = 'buffer', keyword_length = 5, max_item_count = 5 },
+    { name = 'buffer' },
   },
   formatting = {
-    format = lspkind.cmp_format {
-      mode = 'symbol_text',
-      maxwidth = 50,
-      before = function(_, vim_item)
-        return vim_item
-      end,
-    },
+    format = function(_, vim_item)
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      return vim_item
+    end,
   },
 }
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' },
   },
@@ -79,6 +95,7 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' },
   }, {
