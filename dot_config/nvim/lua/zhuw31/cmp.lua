@@ -76,6 +76,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'vsnip' },
     { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
   },
   formatting = {
     format = function(_, vim_item)
