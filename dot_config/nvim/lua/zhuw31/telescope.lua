@@ -10,11 +10,11 @@ end
 
 local utils = require 'zhuw31.utils'
 
-utils.n_map('<leader>ff', '<cmd>Telescope find_files<CR>')
-utils.n_map('<leader>fl', '<cmd>Telescope live_grep<CR>')
-utils.n_map('<leader>fb', '<cmd>Telescope buffers<CR>')
-utils.n_map('<leader>fh', '<cmd>Telescope help_tags<CR>')
-utils.n_map('<leader>fk', '<cmd>Telescope keymaps<CR>')
+utils.n_map('<leader>ff', '<cmd>Telescope find_files theme=ivy<CR>')
+utils.n_map('<leader>fl', '<cmd>Telescope live_grep theme=ivy<CR>')
+utils.n_map('<leader>fb', '<cmd>Telescope buffers theme=ivy<CR>')
+utils.n_map('<leader>fh', '<cmd>Telescope help_tags theme=ivy<CR>')
+utils.n_map('<leader>fk', '<cmd>Telescope keymaps theme=ivy<CR>')
 
 telescope.setup {
   defaults = {
