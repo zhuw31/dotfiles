@@ -49,6 +49,7 @@ local options = {
   swapfile = false,
   mouse = 'n',
   wrapscan = false,
+  laststatus = 3,
 }
 
 for opt_k, opt_v in pairs(options) do

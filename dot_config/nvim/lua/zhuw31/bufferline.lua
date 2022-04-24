@@ -5,8 +5,8 @@ end
 
 local utils = require 'zhuw31.utils'
 
-utils.n_map('<S-h>', '<cmd>BufferLineCyclePrev<CR>')
-utils.n_map('<S-l>', '<cmd>BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>')
 
 bufferline.setup {
   options = {
