@@ -10,14 +10,15 @@ end
 
 local utils = require 'zhuw31.utils'
 
-utils.n_map('<leader>ff', '<cmd>Telescope find_files theme=ivy<CR>')
-utils.n_map('<leader>fl', '<cmd>Telescope live_grep theme=ivy<CR>')
-utils.n_map('<leader>fb', '<cmd>Telescope buffers theme=ivy<CR>')
+utils.n_map('<leader>ff', '<cmd>Telescope find_files<CR>')
+utils.n_map('<leader>fl', '<cmd>Telescope live_grep<CR>')
+utils.n_map('<leader>fb', '<cmd>Telescope buffers<CR>')
 utils.n_map('<leader>fh', '<cmd>Telescope help_tags theme=ivy<CR>')
 utils.n_map('<leader>fk', '<cmd>Telescope keymaps theme=ivy<CR>')
 
 telescope.setup {
   defaults = {
+    preview = false,
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,
@@ -25,5 +26,29 @@ telescope.setup {
       },
     },
   },
+  pickers = {
+    find_files = {
+      theme = 'ivy',
+      preview = true,
+      hidden = true,
+    },
+    live_grep = {
+      theme = 'ivy',
+      preview = true,
+      hidden = true,
+    },
+    buffers = {
+      theme = 'ivy',
+      preview = true,
+      hidden = true,
+    },
+    help_tags = {
+      theme = 'dropdown',
+    },
+    keymaps = {
+      theme = 'dropdown',
+    },
+  },
 }
+
 telescope.load_extension 'fzf'
