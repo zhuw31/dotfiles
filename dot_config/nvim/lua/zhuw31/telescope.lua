@@ -8,13 +8,11 @@ if not actions_status_ok then
   return
 end
 
-local utils = require 'zhuw31.utils'
-
-utils.n_map('<leader>ff', '<cmd>Telescope find_files<CR>')
-utils.n_map('<leader>fl', '<cmd>Telescope live_grep<CR>')
-utils.n_map('<leader>fb', '<cmd>Telescope buffers<CR>')
-utils.n_map('<leader>fh', '<cmd>Telescope help_tags theme=ivy<CR>')
-utils.n_map('<leader>fk', '<cmd>Telescope keymaps theme=ivy<CR>')
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<leader>fl', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>')
+vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>')
+vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<CR>')
 
 telescope.setup {
   defaults = {

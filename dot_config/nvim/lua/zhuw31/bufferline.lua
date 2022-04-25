@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
-local utils = require 'zhuw31.utils'
-
 vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>')
 

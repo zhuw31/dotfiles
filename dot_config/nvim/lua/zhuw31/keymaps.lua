@@ -1,18 +1,16 @@
-local utils = require 'zhuw31.utils'
+vim.keymap.set('n', '<Leader>=', ':vert resize +10<CR>')
+vim.keymap.set('n', '<Leader>-', ':vert resize -10<CR>')
 
-utils.n_map('<leader>=', '<cmd>vert resize +10<cr>')
-utils.n_map('<leader>-', '<cmd>vert resize -10<cr>')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
-utils.n_map('n', 'nzzzv')
-utils.n_map('N', 'Nzzzv')
+vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-j>', '<c-w>j')
+vim.keymap.set('n', '<c-k>', '<c-w>k')
+vim.keymap.set('n', '<c-l>', '<c-w>l')
 
-utils.n_map('<c-h>', '<c-w>h')
-utils.n_map('<c-j>', '<c-w>j')
-utils.n_map('<c-k>', '<c-w>k')
-utils.n_map('<c-l>', '<c-w>l')
+vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
+vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
 
-utils.v_map('J', [[<cmd>m '>+1<cr>gv=gv]])
-utils.v_map('K', [[<cmd>m '<-2<cr>gv=gv]])
-
-utils.i_map('<c-j>', '<ESC>o')
-utils.i_map('<c-k>', '<ESC>O')
+vim.keymap.set('i', '<c-j>', '<ESC>o')
+vim.keymap.set('i', '<c-k>', '<ESC>O')

@@ -8,10 +8,8 @@ if not events_status_ok then
     return
 end
 
-local utils = require 'zhuw31.utils'
-
-utils.n_map('<leader>ee', '<cmd>NvimTreeToggle<CR>')
-utils.n_map('<leader>ef', '<cmd>NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<Leader>ee', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<Leader>ef', ':NvimTreeFindFile<CR>')
 
 vim.g.nvim_tree_icons = {
   default = '',

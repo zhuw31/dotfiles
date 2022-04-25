@@ -8,8 +8,6 @@ if not terminal_status_ok then
   return
 end
 
-local utils = require 'zhuw31.utils'
-
 toggleterm.setup {
   open_mapping = [[<c-t>]],
   insert_mappings = true,
@@ -38,4 +36,4 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
-utils.n_map('<leader>lg', [[<cmd>lua _lazygit_toggle()<CR>]])
+vim.keymap.set('n', '<leader>lg', _lazygit_toggle)
