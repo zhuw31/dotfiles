@@ -17,7 +17,3 @@ fi
 export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_PLUG="p:preview-tui"
-
-bindkey -v
