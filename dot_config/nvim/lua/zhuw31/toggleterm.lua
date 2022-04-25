@@ -13,7 +13,7 @@ toggleterm.setup {
   insert_mappings = true,
   start_in_insert = false,
   shade_terminals = false,
-  direction = 'horizontal',
+  direction = 'tab',
   float_opts = {
     width = math.floor(vim.api.nvim_win_get_width(0) * 0.9),
     height = math.floor(vim.api.nvim_win_get_height(0) * 0.9),
@@ -32,7 +32,7 @@ local lazygit = Terminal:new {
   end,
 }
 
-function _lazygit_toggle()
+local function _lazygit_toggle()
   lazygit:toggle()
 end
 

@@ -54,7 +54,6 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'b0o/schemastore.nvim'
   use 'folke/lua-dev.nvim'
-  use 'akinsho/bufferline.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'

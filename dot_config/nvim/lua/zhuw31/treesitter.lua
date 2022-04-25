@@ -21,6 +21,9 @@ configs.setup {
     'vue',
     'yaml',
   },
+  indent = {
+      enable = true,
+  },
   highlight = {
     enable = true,
   },
