@@ -29,7 +29,6 @@ toggleterm.setup {
 local Terminal = terminal.Terminal
 
 local function float_on_open(term)
-  vim.cmd [[startinsert!]]
   vim.keymap.set('n', 'q', ':close<CR>', { silent = true, buffer = term.bufnr })
 end
 
