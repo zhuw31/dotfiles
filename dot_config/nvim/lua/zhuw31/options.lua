@@ -1,4 +1,4 @@
-local indent = 4
+local indent = 2
 local g = vim.g
 local cmd = vim.cmd
 local opt = vim.opt

@@ -9,31 +9,53 @@ if not terminal_status_ok then
 end
 
 toggleterm.setup {
+  size = function(term)
+    if term.direction == 'vertical' then
+      return vim.o.columns * 0.4
+    else
+      return 20
+    end
+  end,
   open_mapping = [[<c-t>]],
   insert_mappings = true,
   start_in_insert = false,
-  shade_terminals = false,
-  direction = 'tab',
+  direction = 'vertical',
   float_opts = {
-    width = math.floor(vim.api.nvim_win_get_width(0) * 0.9),
-    height = math.floor(vim.api.nvim_win_get_height(0) * 0.9),
+    border = 'rounded',
   },
 }
 
 local Terminal = terminal.Terminal
+
+local function float_on_open(term)
+  vim.cmd [[startinsert!]]
+  vim.keymap.set('n', 'q', ':close<CR>', { silent = true, buffer = term.bufnr })
+end
+
 local lazygit = Terminal:new {
   cmd = 'lazygit',
   dir = 'git_dir',
   direction = 'float',
-  -- function to run on opening the terminal
-  on_open = function(term)
-    vim.cmd [[startinsert!]]
-    vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
-  end,
+  hidden = true,
+  on_open = float_on_open,
 }
 
-local function _lazygit_toggle()
+local function lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.keymap.set('n', '<leader>lg', _lazygit_toggle)
+local npm = Terminal:new {
+  cmd = 'nr pstart',
+  dir = 'git_dir',
+  direction = 'float',
+  hidden = false,
+  count = 5,
+  on_open = float_on_open,
+}
+
+local function npm_toggle()
+  npm:toggle()
+end
+
+vim.keymap.set('n', '<leader>lg', lazygit_toggle)
+vim.keymap.set('n', '<leader>ps', npm_toggle)
