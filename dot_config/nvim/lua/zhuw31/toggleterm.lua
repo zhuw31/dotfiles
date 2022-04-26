@@ -16,9 +16,10 @@ toggleterm.setup {
       return 20
     end
   end,
+  shade_terminals = false,
   open_mapping = [[<c-t>]],
   insert_mappings = true,
-  start_in_insert = false,
+  start_in_insert = true,
   direction = 'vertical',
   float_opts = {
     border = 'rounded',

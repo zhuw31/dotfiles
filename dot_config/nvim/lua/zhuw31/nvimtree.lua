@@ -8,8 +8,7 @@ if not events_status_ok then
     return
 end
 
-vim.keymap.set('n', '<Leader>ee', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<Leader>ef', ':NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<Leader>e', ':NvimTreeFindFile<CR>')
 
 vim.g.nvim_tree_icons = {
   default = '',
