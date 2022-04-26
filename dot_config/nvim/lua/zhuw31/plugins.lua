@@ -45,7 +45,6 @@ return packer.startup(function(use)
   use 'dstein64/vim-startuptime'
   use 'shaunsingh/nord.nvim'
   use { 'folke/tokyonight.nvim', branch = 'main' }
-  use 'mhartington/oceanic-next'
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'neovim/nvim-lspconfig'
@@ -64,7 +63,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hoob3rt/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
-  use 'editorconfig/editorconfig-vim'
+  use 'gpanders/editorconfig.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
