@@ -28,16 +28,11 @@ toggleterm.setup {
 
 local Terminal = terminal.Terminal
 
-local function float_on_open(term)
-  vim.keymap.set('n', 'q', ':close<CR>', { silent = true, buffer = term.bufnr })
-end
-
 local lazygit = Terminal:new {
   cmd = 'lazygit',
   dir = 'git_dir',
   direction = 'float',
   hidden = true,
-  on_open = float_on_open,
 }
 
 local function lazygit_toggle()
@@ -50,7 +45,6 @@ local npm = Terminal:new {
   direction = 'float',
   hidden = false,
   count = 5,
-  on_open = float_on_open,
 }
 
 local function npm_toggle()
@@ -58,4 +52,4 @@ local function npm_toggle()
 end
 
 vim.keymap.set('n', '<leader>lg', lazygit_toggle)
-vim.keymap.set('n', '<leader>ps', npm_toggle)
+vim.keymap.set('n', '<leader>ys', npm_toggle)
