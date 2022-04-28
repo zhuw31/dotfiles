@@ -56,16 +56,21 @@ local lsp = {
   icon = ' ',
 }
 
+local branch = {
+  'branch',
+  icon = ''
+}
+
 lualine.setup {
   options = {
-    section_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     disabled_filetypes = { 'NvimTree' },
     globalstatus = true,
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'filename', 'branch', diff },
+    lualine_b = { 'filename', branch, diff },
     lualine_c = { 'diagnostics' },
     lualine_x = { lsp },
     lualine_y = { encoding, 'filetype', spaces },
