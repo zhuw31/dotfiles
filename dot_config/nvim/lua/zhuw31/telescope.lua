@@ -16,7 +16,6 @@ vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true })
 
 telescope.setup {
   defaults = {
-    preview = false,
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,

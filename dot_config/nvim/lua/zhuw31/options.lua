@@ -1,15 +1,14 @@
 local indent = 2
-local g = vim.g
 local cmd = vim.cmd
 local opt = vim.opt
 
-g.mapleader = ' '
-g.loaded_python_provider = 0
-g.loaded_node_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_perl_provider = 0
-g.python_host_prog = '/usr/bin/python'
-g.python3_host_prog = '/usr/local/bin/python3'
+vim.g.mapleader = ' '
+vim.g.loaded_python_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.python_host_prog = '/usr/bin/python'
+vim.g.python3_host_prog = '/usr/local/bin/python3'
 
 -- options
 local options = {
@@ -65,12 +64,14 @@ if colorscheme_ok then
 end
 
 -- Highlight when yank
-cmd [[
-    augroup highlight_yank
-        autocmd!
-        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
-    augroup END
-]]
+vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = 'YankHighlight',
+  pattern = '*',
+})
 
 -- windows to close with "q"
 cmd [[autocmd FileType help,startuptime,lspinfo,qf nnoremap <buffer><silent> q :close<CR>]]
