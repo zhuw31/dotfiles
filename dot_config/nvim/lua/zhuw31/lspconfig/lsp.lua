@@ -65,8 +65,8 @@ local config = {
   update_in_insert = true,
   underline = true,
   severity_sort = true,
-  border = 'single',
 }
+
 vim.diagnostic.config(config)
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'rounded',

@@ -45,6 +45,7 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 ]]
 
 cmp.setup {
+  fields = { 'kind', 'abbr', 'menu' },
   snippet = {
     expand = function(args)
       vim.fn['vsnip#anonymous'](args.body)
