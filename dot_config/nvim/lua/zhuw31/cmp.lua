@@ -79,8 +79,14 @@ cmp.setup {
     { name = 'nvim_lsp_signature_help' },
   },
   formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+    format = function(entry, vim_item)
+      vim_item.kind = kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
+      vim_item.menu = ({
+        nvim_lsp = '[LSP]',
+        path = '[Path]',
+        vsnip = '[Snippet]',
+        buffer = '[Buffer]',
+      })[entry.source.name]
       return vim_item
     end,
   },
