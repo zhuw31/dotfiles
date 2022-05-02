@@ -27,17 +27,17 @@ telescope.setup {
   pickers = {
     find_files = {
       theme = 'dropdown',
-      previewer = false,
+      preview = false,
       hidden = true,
     },
     live_grep = {
       theme = 'ivy',
-      previewer = true,
+      preview = true,
       hidden = true,
     },
     buffers = {
       theme = 'ivy',
-      previewer = false,
+      preview = false,
       hidden = true,
     },
     help_tags = {
