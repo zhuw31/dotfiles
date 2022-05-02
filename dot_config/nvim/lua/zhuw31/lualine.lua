@@ -58,15 +58,14 @@ local lsp = {
 
 local branch = {
   'branch',
-  icon = ''
+  icon = '',
 }
 
 lualine.setup {
   options = {
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
-    disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
-    globalstatus = true,
+    disabled_filetypes = { 'NvimTree', 'TelescopePrompt', 'qf' },
   },
   sections = {
     lualine_a = { 'mode' },
