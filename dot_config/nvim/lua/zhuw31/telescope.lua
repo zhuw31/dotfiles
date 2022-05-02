@@ -8,11 +8,12 @@ if not actions_status_ok then
   return
 end
 
-vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fl', ':Telescope live_grep<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true })
-vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<CR>', { silent = true })
+local opts = { silent = true }
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<leader>fl', ':Telescope live_grep<CR>', opts)
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
+vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<CR>', opts)
 
 telescope.setup {
   defaults = {

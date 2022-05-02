@@ -22,7 +22,7 @@ configs.setup {
     'yaml',
   },
   indent = {
-      enable = true,
+    enable = true,
   },
   highlight = {
     enable = true,
@@ -32,5 +32,6 @@ configs.setup {
   },
   context_commentstring = {
     enable = true,
+    enable_autocmd = false,
   },
 }

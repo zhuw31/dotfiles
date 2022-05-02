@@ -3,11 +3,10 @@ if not status_ok then
   return
 end
 
-vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
-vim.g.vsnip_filetypes = {
-  javascriptreact = { 'javascript' },
-  typescriptreact = { 'javascript', 'typescript' },
-}
+local luasnip_status_ok, luasnip = pcall(require, 'luasnip')
+if not luasnip_status_ok then
+  return
+end
 
 local kind_icons = {
   Text = '',
@@ -37,46 +36,32 @@ local kind_icons = {
   TypeParameter = '',
 }
 
-vim.cmd [[
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-]]
-
 cmp.setup {
   fields = { 'kind', 'abbr', 'menu' },
   snippet = {
     expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.confirm { select = true }
-      else
-        fallback()
-      end
-    end, {
-      'i',
-      's',
-    }),
+    ['<C-space>'] = cmp.mapping.complete(),
+    ['<C-y>'] = cmp.mapping.confirm {
+      select = true,
+    },
   },
   sources = cmp.config.sources {
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'vsnip' },
-    { name = 'buffer' },
+    { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
     { name = 'nvim_lsp_signature_help' },
   },
   formatting = {
@@ -84,8 +69,9 @@ cmp.setup {
       vim_item.kind = kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = '[LSP]',
+        nvim_lua = '[Lua]',
         path = '[Path]',
-        vsnip = '[Snippet]',
+        luasnip = '[Snippet]',
         buffer = '[Buffer]',
       })[entry.source.name]
       return vim_item

@@ -51,22 +51,22 @@ return packer.startup(function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'b0o/schemastore.nvim' }
-  use { 'folke/lua-dev.nvim' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/cmp-cmdline' }
   use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-vsnip' }
-  use { 'hrsh7th/vim-vsnip' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'L3MON4D3/LuaSnip' }
   use { 'hoob3rt/lualine.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'gpanders/editorconfig.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'windwp/nvim-autopairs' }
+  use { 'numToStr/Comment.nvim' }
   use { 'tpope/vim-surround' }
-  use { 'tpope/vim-commentary' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
   use { 'mzlogin/vim-markdown-toc' }

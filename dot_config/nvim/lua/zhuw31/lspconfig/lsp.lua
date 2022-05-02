@@ -13,11 +13,6 @@ if not json_sheme_status_ok then
   return
 end
 
-local lua_dev_status_ok, lua_dev = pcall(require, 'lua-dev')
-if not lua_dev_status_ok then
-  return
-end
-
 local lsp_installer_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
 if not lsp_installer_ok then
   return
@@ -68,6 +63,7 @@ local config = {
 }
 
 vim.diagnostic.config(config)
+
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'rounded',
 })
@@ -156,9 +152,7 @@ lsp_installer.on_server_ready(function(server)
 
   local server_opts = {
     ['sumneko_lua'] = function()
-      return lua_dev.setup {
-        lspconfig = vim.tbl_deep_extend('force', default_opts, {}),
-      }
+      return vim.tbl_deep_extend('force', default_opts, {})
     end,
     ['tsserver'] = function()
       default_opts = setup_tsserver()
