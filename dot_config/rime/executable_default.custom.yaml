@@ -1,0 +1,15 @@
+customization:
+  distribution_code_name: Squirrel
+  distribution_version: 2021-07-17
+  rime_version: 1.7.3
+patch:
+  schema_list:
+    - schema: flypy # 添加小鹤音形
+  ascii_composer:
+    good_old_caps_lock: false
+    switch_key:
+      Caps_Lock: noop
+      Shift_L: commit_code
+      Shift_R: noop
+      Control_L: noop
+      Control_R: noop
