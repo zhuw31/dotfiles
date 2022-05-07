@@ -15,4 +15,5 @@ vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
 vim.keymap.set('i', '<c-j>', '<ESC>o')
 vim.keymap.set('i', '<c-k>', '<ESC>O')
 
-vim.keymap.set('n', '<leader>hh', ':vert help ')
+vim.keymap.set('n', '<leader>hv', ':vert help ')
+vim.keymap.set('n', '<leader>ht', ':tab help ')

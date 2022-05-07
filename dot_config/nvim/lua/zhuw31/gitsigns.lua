@@ -15,5 +15,7 @@ gitsigns.setup {
   on_attach = function(bufnr)
     vim.keymap.set('n', '[c', gitsigns.prev_hunk, { buffer = bufnr })
     vim.keymap.set('n', ']c', gitsigns.next_hunk, { buffer = bufnr })
+    vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { buffer = bufnr })
+    vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, { buffer = bufnr })
   end,
 }
