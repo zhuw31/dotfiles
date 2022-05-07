@@ -60,6 +60,21 @@ local config = {
   update_in_insert = true,
   underline = true,
   severity_sort = true,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    header = '',
+    prefix = '',
+    format = function(d)
+      local t = vim.deepcopy(d)
+      local code = d.code or d.user_data.lsp.code
+      if code then
+        t.message = string.format('%s [%s]', t.message, code):gsub('1. ', '')
+      end
+      return t.message
+    end,
+  },
 }
 
 vim.diagnostic.config(config)
@@ -143,6 +158,20 @@ local function setup_tsserver()
   }
 end
 
+local function get_lua_runtime()
+  local result = {}
+  for _, path in pairs(vim.api.nvim_list_runtime_paths()) do
+    local lua_path = path .. '/lua'
+    local stat = vim.loop.fs_stat(lua_path)
+    if stat and stat.type == 'directory' then
+      result[lua_path] = true
+    end
+  end
+
+  result[vim.fn.expand '$VIMRUNTIME/lua'] = true
+  return result
+end
+
 -- install all servers
 lsp_installer.on_server_ready(function(server)
   local default_opts = {
@@ -152,7 +181,28 @@ lsp_installer.on_server_ready(function(server)
 
   local server_opts = {
     ['sumneko_lua'] = function()
-      return vim.tbl_deep_extend('force', default_opts, {})
+      return vim.tbl_deep_extend('force', default_opts, {
+        settings = {
+          Lua = {
+            telemetry = {
+              enable = false,
+            },
+            runtime = {
+              version = 'LuaJIT',
+              path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+              enable = true,
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = get_lua_runtime(),
+              maxPreload = 1000,
+              preloadFileSize = 1000,
+            },
+          },
+        },
+      })
     end,
     ['tsserver'] = function()
       default_opts = setup_tsserver()
