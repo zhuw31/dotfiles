@@ -11,10 +11,13 @@ vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
 vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<CR>', opts)
 
 telescope.setup {
+  defaults = {
+    preview = false,
+    file_ignore_patterns = { '.git/' },
+  },
   pickers = {
     find_files = {
       theme = 'dropdown',
-      preview = false,
       hidden = true,
     },
     live_grep = {
@@ -24,7 +27,6 @@ telescope.setup {
     },
     buffers = {
       theme = 'ivy',
-      preview = false,
       hidden = true,
     },
     help_tags = {
