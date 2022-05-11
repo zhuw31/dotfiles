@@ -26,7 +26,7 @@ telescope.setup {
       hidden = true,
     },
     buffers = {
-      theme = 'ivy',
+      theme = 'dropdown',
       hidden = true,
     },
     help_tags = {
