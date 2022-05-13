@@ -3,14 +3,37 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 vim.g.mapleader = ' '
-vim.g.loaded_python_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
 vim.g.python_host_prog = '/usr/bin/python'
 vim.g.python3_host_prog = '/usr/local/bin/python3'
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
+
+-- Disable builtins plugins
+local disabled_built_ins = {
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "gzip",
+  "zip",
+  "zipPlugin",
+  "tar",
+  "tarPlugin",
+  "getscript",
+  "getscriptPlugin",
+  "vimball",
+  "vimballPlugin",
+  "2html_plugin",
+  "logipat",
+  "rrhelper",
+  "spellfile_plugin",
+  "matchit"
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+  vim.g["loaded_" .. plugin] = 1
+end
+
 
 -- options
 local options = {
@@ -52,6 +75,7 @@ local options = {
   wrapscan = false,
   laststatus = 3,
   clipboard = 'unnamedplus',
+  lazyredraw = true,
 }
 
 for opt_k, opt_v in pairs(options) do
