@@ -51,6 +51,7 @@ local options = {
   mouse = 'n',
   wrapscan = false,
   laststatus = 3,
+  clipboard = 'unnamedplus',
 }
 
 for opt_k, opt_v in pairs(options) do
