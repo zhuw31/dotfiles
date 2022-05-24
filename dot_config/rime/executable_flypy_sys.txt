@@ -31,12 +31,12 @@ https://help.flypy.com	xhrm
 ……	;s
 、	;d
 《	;g
-「	;h
-」	;j
+[	;h
+]	;j
 (	;k
 )	;l
 “	;z
-～	;x
+→	;x
 ”	;c
 ——	;v
 》	;b

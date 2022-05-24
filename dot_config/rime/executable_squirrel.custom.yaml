@@ -26,3 +26,21 @@ patch:
       comment_text_color: "0xF0E9E5"
   style:
     color_scheme: nord_dark
+  app_options:
+    com.microsoft.VSCode:
+      ascii_mode: true
+    com.google.Chrome:
+      # 規避 https://github.com/rime/squirrel/issues/435
+      ascii_mode: true
+      inline: true
+    ru.keepcoder.Telegram:
+      # 規避 https://github.com/rime/squirrel/issues/475
+      inline: true
+    com.alibaba.DingTalkMac:
+      ascii_mode: false
+    io.alacritty:
+      ascii_mode: true
+      inline: true
+    net.kovidgoyal.kitty:
+      ascii_mode: true
+      inline: true
