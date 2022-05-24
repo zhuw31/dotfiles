@@ -15,10 +15,6 @@ vim.g.nvim_tree_icons = {
   default = '',
 }
 
-events.on_file_created(function(file)
-  vim.cmd('edit ' .. file.fname)
-end)
-
 nvim_tree.setup {
   disable_netrw = true,
   update_focused_file = { enable = false },
