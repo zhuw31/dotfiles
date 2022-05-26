@@ -8,6 +8,8 @@ SETUVAR Z_EXCLUDE:\x5e/Users/zhuwei\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_c:chezmoi
 SETUVAR _fish_abbr_k:kubectl
+SETUVAR _fish_abbr_kcn:kubectl\x20config\x20set\x2dcontext\x20\x2d\x2dcurrent\x20\x2d\x2dnamespace
+SETUVAR _fish_abbr_kcu:kubectl\x20config\x20use\x2dcontext
 SETUVAR _fish_abbr_kgp:kubectl\x20get\x20pods
 SETUVAR _fish_abbr_lg:lazygit
 SETUVAR _fish_abbr_v:nvim
