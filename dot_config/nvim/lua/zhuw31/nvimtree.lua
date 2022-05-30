@@ -11,10 +11,6 @@ end
 vim.keymap.set('n', '<c-p>', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<CR>')
 
-vim.g.nvim_tree_icons = {
-  default = '',
-}
-
 nvim_tree.setup {
   disable_netrw = true,
   update_focused_file = { enable = false },

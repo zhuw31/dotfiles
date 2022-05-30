@@ -83,6 +83,7 @@ end
 opt.shortmess:append 'c'
 
 -- Set colorscheme
+vim.g.nord_disable_background = true
 local colorscheme = 'nord'
 local colorscheme_ok = pcall(require, colorscheme)
 if colorscheme_ok then
