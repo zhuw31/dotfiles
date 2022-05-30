@@ -102,3 +102,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- windows to close with "q"
 cmd [[autocmd FileType help,startuptime,lspinfo,qf nnoremap <buffer><silent> q :close<CR>]]
+
+cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"]]
