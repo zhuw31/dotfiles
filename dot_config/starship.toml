@@ -1,3 +1,4 @@
 [kubernetes]
-# format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
 disabled = false
+[git_branch]
+symbol = "ﯙ "
