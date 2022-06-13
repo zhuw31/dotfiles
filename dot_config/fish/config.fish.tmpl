@@ -4,4 +4,7 @@ if status is-interactive
 
   set -gx fish_greeting
   set -gx EDITOR nvim
+  {{- if eq .chezmoi.os "darwin"}}
+  set -gx HOMEBREW_BREWFILE ~/.Brewfile
+  {{- end}}
 end
