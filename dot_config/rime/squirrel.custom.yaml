@@ -44,3 +44,6 @@ patch:
     net.kovidgoyal.kitty:
       ascii_mode: true
       inline: true
+    com.apple.Safari:
+      ascii_mode: true
+      inline: true
