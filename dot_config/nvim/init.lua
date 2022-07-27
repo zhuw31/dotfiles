@@ -1,1 +1,1 @@
-require('zhuw31')
+require 'zhuw31'

@@ -3,40 +3,12 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 vim.g.mapleader = ' '
-vim.g.python_host_prog = '/usr/bin/python'
-vim.g.python3_host_prog = '/usr/local/bin/python3'
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 -- vim.g.do_filetype_lua = 1
 -- vim.g.did_load_filetypes = 0
-
--- Disable builtins plugins
-local disabled_built_ins = {
-  'netrw',
-  'netrwPlugin',
-  'netrwSettings',
-  'netrwFileHandlers',
-  'gzip',
-  'zip',
-  'zipPlugin',
-  'tar',
-  'tarPlugin',
-  'getscript',
-  'getscriptPlugin',
-  'vimball',
-  'vimballPlugin',
-  '2html_plugin',
-  'logipat',
-  'rrhelper',
-  'spellfile_plugin',
-  'matchit',
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-  vim.g['loaded_' .. plugin] = 1
-end
 
 -- options
 local options = {
@@ -57,7 +29,7 @@ local options = {
   smartcase = true,
   hlsearch = false,
   switchbuf = { 'useopen', 'usetab' },
-  updatetime = 100,
+  updatetime = 50,
   inccommand = 'split',
   showmode = false,
   completeopt = { 'menu', 'menuone', 'noselect' },
@@ -68,10 +40,10 @@ local options = {
   pumheight = 10,
   list = true,
   backup = false,
-  wrap = true,
+  wrap = false,
   writebackup = false,
   scrolloff = 5,
-  guicursor = 'a:block',
+  guicursor = '',
   sidescrolloff = 5,
   swapfile = false,
   mouse = 'n',
@@ -107,4 +79,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- windows to close with "q"
 cmd [[autocmd FileType help,startuptime,lspinfo,qf nnoremap <buffer><silent> q :close<CR>]]
 
-cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"]]
+cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* !chezmoi apply --source-path "%"]]

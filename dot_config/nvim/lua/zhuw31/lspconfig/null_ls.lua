@@ -1,16 +1,21 @@
-local ok, null_ls = pcall(require, 'null-ls')
-if not ok then
-  return
+local M = {}
+
+function M.setup(on_attach)
+  local null_ls = require 'null-ls'
+  local b = null_ls.builtins
+
+  local sources = {
+    b.formatting.prettierd,
+    b.formatting.stylua,
+    b.diagnostics.eslint_d,
+    b.diagnostics.stylelint.with { prefer_local = 'node_modules/.bin' },
+    b.code_actions.eslint_d,
+  }
+
+  null_ls.setup {
+    sources = sources,
+    on_attach = on_attach,
+  }
 end
 
-local sources = {
-  null_ls.builtins.formatting.prettierd,
-  null_ls.builtins.formatting.stylua,
-  null_ls.builtins.diagnostics.eslint_d,
-  null_ls.builtins.diagnostics.stylelint.with { prefer_local = 'node_modules/.bin' },
-  null_ls.builtins.code_actions.eslint_d,
-}
-
-null_ls.setup {
-  sources = sources,
-}
+return M

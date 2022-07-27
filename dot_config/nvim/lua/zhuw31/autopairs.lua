@@ -1,6 +1,8 @@
-local status_ok, autopairs = pcall(require, 'nvim-autopairs')
-if not status_ok then
-  return
+local M = {}
+
+function M.setup()
+  local autopairs = require 'nvim-autopairs'
+  autopairs.setup {}
 end
 
-autopairs.setup {}
+return M
