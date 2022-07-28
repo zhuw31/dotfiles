@@ -92,10 +92,10 @@ function M.setup()
     'html',
     'jsonls',
     'yamlls',
-    'vimls',
     'sumneko_lua',
     'bashls',
     'tailwindcss',
+    'null-ls'
   }
 
   for _, server in ipairs(servers) do
