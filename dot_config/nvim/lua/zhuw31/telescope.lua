@@ -5,6 +5,7 @@ function M.setup()
   local actions = require 'telescope.actions'
   local actions_layout = require 'telescope.actions.layout'
   local builtins = require 'telescope.builtin'
+  local previewers = require 'telescope.previewers'
 
   local opts = { silent = true }
   vim.keymap.set('n', '<leader>ff', builtins.find_files, opts)
@@ -32,9 +33,9 @@ function M.setup()
         },
       },
       hl_result_eol = false,
-      file_previewer = require('telescope.previewers').vim_buffer_cat.new,
-      grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
-      qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+      file_previewer = previewers.vim_buffer_cat.new,
+      grep_previewer = previewers.vim_buffer_vimgrep.new,
+      qflist_previewer = previewers.vim_buffer_qflist.new,
       mappings = {
         i = {
           ['<C-s>'] = actions.cycle_previewers_next,
