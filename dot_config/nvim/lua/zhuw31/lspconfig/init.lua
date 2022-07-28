@@ -95,7 +95,7 @@ function M.setup()
     'sumneko_lua',
     'bashls',
     'tailwindcss',
-    'null-ls'
+    'null-ls',
   }
 
   for _, server in ipairs(servers) do
