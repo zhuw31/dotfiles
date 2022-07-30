@@ -49,7 +49,6 @@ local options = {
   laststatus = 3,
   clipboard = 'unnamedplus',
   lazyredraw = true,
-  cursorline = true,
 }
 
 for opt_k, opt_v in pairs(options) do
