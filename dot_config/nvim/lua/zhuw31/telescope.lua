@@ -49,6 +49,9 @@ function M.setup()
           ['<A-q>'] = false,
           ['<C-c>'] = actions.close,
         },
+        n = {
+          ['<C-c>'] = actions.close,
+        },
       },
       file_ignore_patterns = { '.git/' },
       dynamic_preview_title = true,
