@@ -1,8 +1,6 @@
-local M = {}
-
-function M.setup()
-  local autopairs = require 'nvim-autopairs'
-  autopairs.setup {}
+local ok, npairs = pcall(require, 'nvim-autopairs')
+if not ok then
+  return
 end
 
-return M
+npairs.setup {}

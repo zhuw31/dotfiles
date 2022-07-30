@@ -9,11 +9,5 @@ vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
-vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv<ESC>]])
-vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv<ESC>]])
-
-vim.keymap.set('i', '<c-j>', '<ESC>o')
-vim.keymap.set('i', '<c-k>', '<ESC>O')
-
 vim.keymap.set('n', '<leader>hv', ':vert help ')
 vim.keymap.set('n', '<leader>ht', ':tab help ')

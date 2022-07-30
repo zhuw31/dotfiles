@@ -23,11 +23,6 @@ packer.startup(function(use)
   use 'shaunsingh/nord.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    config = function()
-      require('zhuw31.telescope').setup()
-    end,
-  }
-  use {
     'nvim-telescope/telescope-fzy-native.nvim',
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
@@ -35,12 +30,7 @@ packer.startup(function(use)
   use {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    {
-      'neovim/nvim-lspconfig',
-      config = function()
-        require('zhuw31.lspconfig').setup()
-      end,
-    },
+    'neovim/nvim-lspconfig',
     'jose-elias-alvarez/typescript.nvim',
     'jose-elias-alvarez/null-ls.nvim',
     'folke/lua-dev.nvim',
@@ -48,11 +38,6 @@ packer.startup(function(use)
   }
   use {
     'hrsh7th/nvim-cmp',
-    config = function()
-      require('zhuw31.cmp').setup()
-    end,
-  }
-  use {
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'hrsh7th/cmp-nvim-lua',
     'hrsh7th/cmp-nvim-lsp',
@@ -63,54 +48,21 @@ packer.startup(function(use)
     'L3MON4D3/LuaSnip',
   }
   use 'kyazdani42/nvim-web-devicons'
-  use {
-    'hoob3rt/lualine.nvim',
-    config = function()
-      require('zhuw31.lualine').setup()
-    end,
-  }
+  use 'hoob3rt/lualine.nvim'
   use 'gpanders/editorconfig.nvim'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('zhuw31.treesitter').setup()
-    end,
+    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+    'JoosepAlviste/nvim-ts-context-commentstring',
   }
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('zhuw31.autopairs').setup()
-    end,
-  }
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('zhuw31.comment').setup()
-    end,
-  }
+  use 'windwp/nvim-autopairs'
+  use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
   use 'mzlogin/vim-markdown-toc'
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = function()
-      require('zhuw31.nvimtree').setup()
-    end,
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('zhuw31.gitsigns').setup()
-    end,
-  }
-  use {
-    'akinsho/toggleterm.nvim',
-    config = function()
-      require('zhuw31.toggleterm').setup()
-    end,
-  }
+  use 'kyazdani42/nvim-tree.lua'
+  use 'lewis6991/gitsigns.nvim'
+  use 'akinsho/toggleterm.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

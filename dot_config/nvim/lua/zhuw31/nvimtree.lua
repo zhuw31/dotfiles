@@ -1,20 +1,18 @@
-local M = {}
-
-function M.setup()
-  local nvim_tree = require 'nvim-tree'
-  local events = require 'nvim-tree.events'
-
-  vim.keymap.set('n', '<c-p>', ':NvimTreeToggle<CR>')
-  vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<CR>')
-
-  nvim_tree.setup {
-    disable_netrw = true,
-    update_focused_file = { enable = false },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
-    },
-  }
+local ok, tree = pcall(require, 'nvim-tree')
+if not ok then
+  return
 end
 
-return M
+vim.keymap.set('n', '<c-p>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<CR>')
+
+tree.setup {
+  disable_netrw = true,
+  update_focused_file = {
+    enable = false,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+}
