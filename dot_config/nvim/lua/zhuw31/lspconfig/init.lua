@@ -58,6 +58,19 @@ function M.setup()
     end
   end
 
+  local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format {
+      filter = function(client)
+        -- only use null-ls to format
+        return client.name == 'null-ls'
+      end,
+      bufnr = bufnr or 0,
+    }
+  end
+
+  -- if you want to set up formatting on save, you can use this as a callback
+  local lsp_formatting_group = vim.api.nvim_create_augroup('LspFormatting', {})
+
   local function buf_set_keymap(bufnr)
     vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -75,13 +88,23 @@ function M.setup()
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<leader>fr', vim.lsp.buf.formatting, opts)
+    vim.keymap.set('n', 'gm', lsp_formatting, opts)
   end
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
   local on_attach = function(client, bufnr)
+    if client.supports_method 'textDocument/formatting' then
+      vim.api.nvim_clear_autocmds { group = lsp_formatting_group, buffer = bufnr }
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = lsp_formatting_group,
+        buffer = bufnr,
+        callback = function()
+          lsp_formatting(bufnr)
+        end,
+      })
+    end
     buf_set_keymap(bufnr)
     lsp_highlight_document(client)
   end
