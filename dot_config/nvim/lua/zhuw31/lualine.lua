@@ -40,8 +40,8 @@ local encoding = {
 
 local lsp = {
   function(msg)
-    msg = msg or 'LS Inactive'
-    local buf_clients = vim.lsp.buf_get_clients()
+    msg = msg or 'LSP Inactive'
+    local buf_clients = vim.lsp.get_active_clients()
     local buf_client_names = {}
 
     -- add client
@@ -58,7 +58,7 @@ local lsp = {
 
 local branch = {
   'branch',
-  icon = '',
+  icon = ' ',
 }
 
 lualine.setup {
