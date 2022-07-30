@@ -30,6 +30,7 @@ local config = {
   underline = true,
   severity_sort = true,
   float = {
+    source = 'always',
     focusable = false,
     style = 'minimal',
     border = 'rounded',
