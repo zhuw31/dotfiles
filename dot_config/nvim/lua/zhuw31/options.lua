@@ -7,8 +7,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
--- vim.g.do_filetype_lua = 1
--- vim.g.did_load_filetypes = 0
 
 -- options
 local options = {
@@ -66,8 +64,9 @@ if colorscheme_ok then
   cmd('colorscheme ' .. colorscheme)
 end
 
+local augroup_clear = { clear = true }
 -- Highlight when yank
-vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_augroup('YankHighlight', augroup_clear)
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
@@ -77,6 +76,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- windows to close with "q"
-cmd [[autocmd FileType help,startuptime,lspinfo,qf nnoremap <buffer><silent> q :close<CR>]]
+vim.api.nvim_create_augroup('QuickCloseQ', augroup_clear)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help', 'startuptime', 'lspinfo', 'qf' },
+  group = 'QuickCloseQ',
+  callback = function()
+    vim.keymap.set('n', 'q', '<cmd>close<CR>', { silent = true })
+  end,
+})
 
-cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* !chezmoi apply --source-path "%"]]
+-- cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* !chezmoi apply --source-path "%"]]
+vim.api.nvim_create_augroup('ChezmoiApply', augroup_clear)
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = vim.fn.expand '~/.local/share/chezmoi/' .. '*',
+  group = 'ChezmoiApply',
+  callback = function(opts)
+    os.execute('chezmoi apply --source-path ' .. opts.file)
+  end,
+})
