@@ -46,11 +46,8 @@ function M.setup()
           ['<C-h>'] = actions_layout.toggle_preview,
 
           ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
-          ['<a-q>'] = false,
-          ['<c-c>'] = function()
-            vim.cmd [[stopinsert]]
-          end,
-          ['<esc>'] = actions.close,
+          ['<A-q>'] = false,
+          ['<C-c>'] = actions.close,
         },
       },
       file_ignore_patterns = { '.git/' },
