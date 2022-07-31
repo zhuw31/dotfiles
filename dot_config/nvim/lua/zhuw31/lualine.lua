@@ -75,4 +75,7 @@ lualine.setup {
     lualine_y = { encoding, 'filetype', spaces },
     lualine_z = { 'location', 'progress' },
   },
+  tabline = {
+    lualine_a = { 'filename' },
+  },
 }
