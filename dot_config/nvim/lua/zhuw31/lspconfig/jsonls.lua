@@ -5,8 +5,8 @@ M.setup = function(on_attach, capabilities)
     settings = {
       json = {
         schemas = require('schemastore').json.schemas(),
-        format = {
-          enable = false,
+        validate = {
+          enable = true,
         },
       },
     },
