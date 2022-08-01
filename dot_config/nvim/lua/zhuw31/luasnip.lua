@@ -18,11 +18,35 @@ ls.config.setup {
   ext_opts = {
     [types.choiceNode] = {
       active = {
-        virt_text = { { ' <- Current Choice', 'NonTest' } },
+        virt_text = { { '', 'Comment' } },
       },
     },
   },
 }
+
+local s = ls.snippet
+local sn = ls.snippet_node
+local isn = ls.indent_snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+local r = ls.restore_node
+
+ls.add_snippets('typescript', {
+  s('clg', {
+    t 'console.',
+    c(1, {
+      t 'log',
+      t 'dir',
+      t 'error',
+    }),
+    t '(',
+    i(2, { 'msg' }),
+    t ')',
+  }),
+})
 
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
