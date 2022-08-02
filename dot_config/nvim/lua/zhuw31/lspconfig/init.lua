@@ -85,7 +85,7 @@ end
 local lsp_formatting_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local function buf_set_keymap(bufnr)
-  vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
+  vim.keymap.set('n', 'go', vim.diagnostic.open_float)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
