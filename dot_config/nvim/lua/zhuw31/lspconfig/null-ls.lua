@@ -7,9 +7,9 @@ function M.setup(on_attach)
   local sources = {
     b.formatting.prettierd,
     b.formatting.stylua,
-    b.diagnostics.eslint_d,
+    b.diagnostics.eslint,
     b.diagnostics.stylelint.with { prefer_local = 'node_modules/.bin' },
-    b.code_actions.eslint_d,
+    b.code_actions.eslint,
   }
 
   null_ls.setup {
