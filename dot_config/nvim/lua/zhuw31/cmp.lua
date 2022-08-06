@@ -32,11 +32,6 @@ local kind_icons = {
   TypeParameter = '',
 }
 
--- local has_words_before = function()
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
---   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
--- end
-
 cmp.setup {
   fields = { 'kind', 'abbr', 'menu' },
   snippet = {
@@ -53,10 +48,25 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-y>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
+    ['<TAB>'] = cmp.mapping(function(fallback)
+      if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      elseif cmp.visible() then
+        cmp.confirm {
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }
+      else
+        fallback()
+      end
+    end),
+    ['<S-TAB>'] = cmp.mapping(function(fallback)
+      if ls.jumpable(-1) then
+        ls.jump(-1)
+      else
+        fallback()
+      end
+    end),
   },
   sources = cmp.config.sources {
     { name = 'nvim_lua' },
