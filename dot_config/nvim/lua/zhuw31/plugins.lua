@@ -29,10 +29,7 @@ packer.startup {
   function(use)
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
-    use {
-      'shaunsingh/nord.nvim',
-      'folke/tokyonight.nvim',
-    }
+    use 'shaunsingh/nord.nvim'
     use {
       'nvim-telescope/telescope.nvim',
       'nvim-telescope/telescope-fzy-native.nvim',
