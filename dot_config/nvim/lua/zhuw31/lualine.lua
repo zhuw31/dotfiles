@@ -75,10 +75,4 @@ lualine.setup {
     lualine_y = { encoding, 'filetype', spaces },
     lualine_z = { 'location', 'progress' },
   },
-  winbar = {
-    lualine_a = { 'filename' },
-  },
-  inactive_winbar = {
-    lualine_a = { 'filename' },
-  },
 }

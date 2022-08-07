@@ -40,6 +40,7 @@ packer.startup {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
+      'glepnir/lspsaga.nvim',
       'jose-elias-alvarez/typescript.nvim',
       'jose-elias-alvarez/null-ls.nvim',
       'folke/lua-dev.nvim',

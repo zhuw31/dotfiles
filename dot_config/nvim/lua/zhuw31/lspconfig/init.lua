@@ -1,6 +1,7 @@
 local ok, mason = pcall(require, 'mason')
 local ok_lsp, mason_lspconfig = pcall(require, 'mason-lspconfig')
-if not ok or not ok_lsp then
+local ok_saga, saga = pcall(require, 'lspsaga')
+if not ok or not ok_lsp or not ok_saga then
   return
 end
 
@@ -85,22 +86,21 @@ end
 local lsp_formatting_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local function buf_set_keymap(bufnr)
-  vim.keymap.set('n', 'go', vim.diagnostic.open_float)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+  -- vim.keymap.set('n', 'go', vim.diagnostic.open_float)
+  -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
 
   local opts = { buffer = bufnr, silent = true }
 
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
   vim.keymap.set('n', 'gk', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  -- vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
+  -- vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   vim.keymap.set('n', 'gm', lsp_formatting, opts)
 end
 
