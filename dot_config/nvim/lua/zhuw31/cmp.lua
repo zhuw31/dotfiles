@@ -48,25 +48,10 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<TAB>'] = cmp.mapping(function(fallback)
-      if ls.expand_or_jumpable() then
-        ls.expand_or_jump()
-      elseif cmp.visible() then
-        cmp.confirm {
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = true,
-        }
-      else
-        fallback()
-      end
-    end),
-    ['<S-TAB>'] = cmp.mapping(function(fallback)
-      if ls.jumpable(-1) then
-        ls.jump(-1)
-      else
-        fallback()
-      end
-    end),
+    ['<C-i>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
   },
   sources = cmp.config.sources {
     { name = 'nvim_lua' },
