@@ -8,14 +8,13 @@ lspsaga.init_lsp_saga {
   code_action_lightbulb = {
     enable = false,
   },
-  saga_winblend = 100,
   finder_action_keys = {
     vsplit = 'v',
     split = 's',
   },
   symbol_in_winbar = {
     enable = true,
-    separator = ' ',
+    separator = '  ',
   },
 }
 
@@ -30,3 +29,4 @@ vim.keymap.set('n', '<leader>k', '<cmd>Lspsaga signature_help<cr>', opts)
 vim.keymap.set('n', 'gn', '<cmd>Lspsaga rename<cr>', opts)
 vim.keymap.set('n', 'ga', '<cmd>Lspsaga code_action<cr>', opts)
 vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>', opts)
+vim.cmd [[hi LspFloatWinNormal guibg=#2E3440]]
