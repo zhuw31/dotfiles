@@ -13,7 +13,7 @@ lspsaga.init_lsp_saga {
     split = 's',
   },
   symbol_in_winbar = {
-    enable = true,
+    enable = false,
     separator = '  ',
   },
 }
