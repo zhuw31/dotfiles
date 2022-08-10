@@ -5,12 +5,12 @@ if not ok or not ok_ls then
 end
 
 local kind_icons = {
-  Text = '',
+  Text = '',
   Method = '',
   Function = '',
   Constructor = '',
-  Field = '',
-  Variable = '',
+  Field = 'ﰠ',
+  Variable = '',
   Class = 'ﴯ',
   Interface = '',
   Module = '',
