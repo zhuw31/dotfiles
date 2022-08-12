@@ -17,7 +17,7 @@ toggleterm.setup {
   open_mapping = [[<c-t>]],
   insert_mappings = true,
   start_in_insert = true,
-  direction = 'vertical',
+  direction = 'float',
   float_opts = {
     border = 'rounded',
   },
