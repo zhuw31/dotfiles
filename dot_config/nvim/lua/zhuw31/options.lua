@@ -49,6 +49,7 @@ local options = {
   laststatus = 3,
   clipboard = 'unnamedplus',
   lazyredraw = true,
+  colorcolumn = '80',
 }
 
 for opt_k, opt_v in pairs(options) do
