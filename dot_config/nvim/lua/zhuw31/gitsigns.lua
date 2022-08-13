@@ -4,18 +4,17 @@ if not ok then
 end
 
 gitsigns.setup {
-  current_line_blame = true,
-  signs = {
-    add = { hl = 'GitSignsAdd', text = '▌' },
-    change = { hl = 'GitSignsChange', text = '▌' },
-    delete = { hl = 'GitSignsDelete', text = '▌' },
-    topdelete = { hl = 'GitSignsDelete', text = '▌' },
-    changedelete = { hl = 'GitSignsChange', text = '▌' },
+  preview_config = {
+    border = 'rounded',
   },
   on_attach = function(bufnr)
-    vim.keymap.set('n', '[c', gitsigns.prev_hunk, { buffer = bufnr })
-    vim.keymap.set('n', ']c', gitsigns.next_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, { buffer = bufnr })
+    local opt = { buffer = bufnr }
+    vim.keymap.set('n', '[c', gitsigns.prev_hunk, opt)
+    vim.keymap.set('n', ']c', gitsigns.next_hunk, opt)
+    vim.keymap.set('n', '<leader>hp', gitsigns.preview_hunk, opt)
+    vim.keymap.set('n', '<leader>hr', gitsigns.reset_hunk, opt)
+    vim.keymap.set('n', '<leader>hb', function()
+      gitsigns.blame_line { full = true }
+    end, opt)
   end,
 }
