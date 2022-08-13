@@ -1,7 +1,6 @@
 local ok, mason = pcall(require, 'mason')
 local ok_lsp, mason_lspconfig = pcall(require, 'mason-lspconfig')
-local ok_saga, saga = pcall(require, 'lspsaga')
-if not ok or not ok_lsp or not ok_saga then
+if not ok or not ok_lsp then
   return
 end
 
@@ -49,7 +48,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
   border = 'rounded',
 })
 
-local function lsp_highlight_document(client, bufnr)
+--[[ local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup('lsp_document_highlight', {
@@ -70,7 +69,7 @@ local function lsp_highlight_document(client, bufnr)
       callback = vim.lsp.buf.clear_references,
     })
   end
-end
+end ]]
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format {
@@ -96,7 +95,7 @@ local function buf_set_keymap(bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gk', vim.lsp.buf.type_definition, opts)
   -- vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
   -- vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
@@ -119,7 +118,7 @@ local on_attach = function(client, bufnr)
     })
   end
   buf_set_keymap(bufnr)
-  lsp_highlight_document(client, bufnr)
+  --[[ lsp_highlight_document(client, bufnr) ]]
 end
 
 local servers = {
