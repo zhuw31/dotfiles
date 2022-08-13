@@ -4,7 +4,10 @@ if not ok then
   return
 end
 
+local action = require 'lspsaga.action'
+
 lspsaga.init_lsp_saga {
+  border_style = 'rounded',
   code_action_lightbulb = {
     enable = false,
   },
@@ -16,6 +19,8 @@ lspsaga.init_lsp_saga {
     enable = false,
     separator = '  ',
   },
+  max_preview_lines = 30,
+  finder_request_timeout = 3000,
 }
 
 local opts = { silent = true }
@@ -29,4 +34,12 @@ vim.keymap.set('n', '<leader>k', '<cmd>Lspsaga signature_help<cr>', opts)
 vim.keymap.set('n', 'gn', '<cmd>Lspsaga rename<cr>', opts)
 vim.keymap.set('n', 'ga', '<cmd>Lspsaga code_action<cr>', opts)
 vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>', opts)
-vim.cmd [[hi LspFloatWinNormal guibg=#2E3440]]
+
+-- scroll down
+vim.keymap.set('n', '<C-f>', function()
+  action.smart_scroll_with_saga(1)
+end, { silent = true })
+-- scroll up hover doc
+vim.keymap.set('n', '<C-b>', function()
+  action.smart_scroll_with_saga(-1)
+end, { silent = true })
