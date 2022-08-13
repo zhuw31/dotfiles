@@ -3,13 +3,17 @@ local M = {}
 function M.setup(on_attach)
   local null_ls = require 'null-ls'
   local b = null_ls.builtins
+  local f = b.formatting
+  local d = b.diagnostics
+  local ca = b.code_actions
 
   local sources = {
-    b.formatting.prettierd,
-    b.formatting.stylua,
-    b.diagnostics.eslint,
-    b.diagnostics.stylelint.with { prefer_local = 'node_modules/.bin' },
-    b.code_actions.eslint,
+    f.prettierd,
+    f.stylua,
+    d.eslint,
+    d.stylelint.with { prefer_local = 'node_modules/.bin' },
+    ca.eslint,
+    ca.gitsigns,
   }
 
   null_ls.setup {
