@@ -23,9 +23,7 @@ end
 
 local config = {
   virtual_text = false,
-  signs = {
-    active = signs,
-  },
+  signs = false,
   update_in_insert = true,
   underline = true,
   severity_sort = true,
