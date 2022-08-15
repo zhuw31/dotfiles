@@ -7,4 +7,8 @@ if status is-interactive
   {{- if eq .chezmoi.os "darwin"}}
   set -gx HOMEBREW_BREWFILE ~/.Brewfile
   {{- end}}
+  # pnpm
+  set -gx PNPM_HOME "/Users/zhuwei/Library/pnpm"
+  set -gx PATH "$PNPM_HOME" $PATH
+  # pnpm end
 end
