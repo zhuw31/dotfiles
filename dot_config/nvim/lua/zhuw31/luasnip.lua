@@ -3,18 +3,6 @@ if not ok then
   return
 end
 
-ls.config.setup {
-  -- This tells LuaSnip to remember to keep around the last snippet.
-  -- You can jump back into it even if you move outside of the selection
-  history = true,
-
-  -- This one is cool cause if you have dynamic snippets, it updates as you type!
-  update_events = 'TextChanged,TextChangedI',
-
-  -- Autosnippets:
-  enable_autosnippets = true,
-}
-
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -25,18 +13,107 @@ local c = ls.choice_node
 local d = ls.dynamic_node
 local r = ls.restore_node
 
+local fmt = require('luasnip.extras.fmt').fmt
+local rep = require('luasnip.extras').rep
+local types = require 'luasnip.util.types'
+
+ls.config.setup {
+  -- This one is cool cause if you have dynamic snippets, it updates as you type!
+  update_events = 'TextChanged,TextChangedI',
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = { { '●', 'SpecialKey' } },
+      },
+    },
+  },
+}
+
+ls.add_snippets('all', {
+  s(
+    'req',
+    fmt([[local {} = require "{}"]], {
+      f(function(import_name)
+        vim.pretty_print(import_name)
+        local parts = vim.split(import_name[1][1], '.', true)
+        return parts[#parts]
+      end, { 1 }),
+      i(1),
+    })
+  ),
+})
+
 ls.add_snippets('typescript', {
-  s('clg', {
-    t 'console.',
-    c(1, {
-      t 'log',
-      t 'dir',
-      t 'error',
-    }),
-    t '(',
-    i(2, { 'msg' }),
-    t ')',
-  }),
+  s(
+    'clg',
+    fmt('console.{}({})', {
+      c(1, { t 'dir', t 'log', t 'error' }),
+      i(2, 'var'),
+    })
+  ),
+  s(
+    'efn',
+    fmt(
+      [[
+    export{} function {}({}) {{
+      {}
+    }}
+    ]],
+      {
+        c(1, { t '', t ' async' }),
+        i(2, 'funcName'),
+        i(3, 'params'),
+        i(4, '// TODO:'),
+      }
+    )
+  ),
+  s(
+    'co',
+    fmt('const {} = {}', {
+      i(2),
+      i(1),
+    })
+  ),
+  s(
+    'imp',
+    fmt("import {} from '{}'", {
+      i(2),
+      i(1),
+    })
+  ),
+  s(
+    'imd',
+    fmt("import {{{}}} from '{}'", {
+      i(2),
+      i(1),
+    })
+  ),
+  s(
+    'iff',
+    fmt(
+      [[
+    if ({}) {{
+      {}
+    }}
+    ]],
+      {
+        i(1, 'condition'),
+        i(2, '// TODO:'),
+      }
+    )
+  ),
+  s(
+    'us',
+    fmt([[const [{}, {}] = useState{}({})]], {
+      i(1),
+      f(function(args)
+        local getter = args[1][1]
+        return 'set' .. string.sub(getter, 1, 1):upper() .. string.sub(getter, 2)
+      end, { 1 }),
+      i(2),
+      i(3),
+    })
+  ),
 })
 
 vim.keymap.set({ 'i', 's' }, '<c-k>', function()
@@ -51,8 +128,6 @@ vim.keymap.set({ 'i', 's' }, '<c-j>', function()
   end
 end)
 
--- <c-l> is selecting within a list of options.
--- This is useful for choice nodes (introduced in the forthcoming episode 2)
 vim.keymap.set('i', '<c-l>', function()
   if ls.choice_active() then
     ls.change_choice(1)
