@@ -1,6 +1,5 @@
 local ok, cmp = pcall(require, 'cmp')
-local ok_ls, ls = pcall(require, 'luasnip')
-if not ok or not ok_ls then
+if not ok then
   return
 end
 
@@ -34,11 +33,6 @@ local kind_icons = {
 
 cmp.setup {
   fields = { 'kind', 'abbr', 'menu' },
-  snippet = {
-    expand = function(args)
-      ls.lsp_expand(args.body)
-    end,
-  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
@@ -57,7 +51,6 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'luasnip' },
     { name = 'buffer', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help' },
   },
@@ -68,7 +61,6 @@ cmp.setup {
         nvim_lsp = '[LSP]',
         nvim_lua = '[Lua]',
         path = '[Path]',
-        luasnip = '[Snippet]',
         buffer = '[Buffer]',
       })[entry.source.name]
       return vim_item
