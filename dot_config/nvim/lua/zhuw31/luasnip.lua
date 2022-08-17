@@ -114,6 +114,24 @@ ls.add_snippets('typescript', {
       i(3),
     })
   ),
+  s(
+    'de',
+    fmt(
+      [[
+    describe{}("{}", () => {{
+      {}
+    }})
+    ]],
+      {
+        c(1, {
+          t '',
+          t '.concurrent',
+        }),
+        i(2),
+        i(3, '// TODO:'),
+      }
+    )
+  ),
 })
 
 vim.keymap.set({ 'i', 's' }, '<c-k>', function()
