@@ -108,7 +108,7 @@ ls.add_snippets('typescript', {
       i(1),
       f(function(args)
         local getter = args[1][1]
-        return 'set' .. string.sub(getter, 1, 1):upper() .. string.sub(getter, 2)
+        return 'set' .. getter:sub(1, 1):upper() .. getter:sub(2)
       end, { 1 }),
       i(2),
       i(3),
