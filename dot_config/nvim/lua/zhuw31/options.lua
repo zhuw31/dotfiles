@@ -88,6 +88,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- cmd [[autocmd BufWritePost ~/.local/share/chezmoi/* !chezmoi apply --source-path "%"]]
 vim.api.nvim_create_augroup('ChezmoiApply', augroup_clear)
 vim.api.nvim_create_autocmd('BufWritePost', {
+  ---@diagnostic disable-next-line: missing-parameter
   pattern = vim.fn.expand '~/.local/share/chezmoi/' .. '*',
   group = 'ChezmoiApply',
   callback = function(opts)
