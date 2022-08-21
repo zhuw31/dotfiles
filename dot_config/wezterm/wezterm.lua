@@ -19,4 +19,8 @@ return {
     top = 0,
     bottom = 0,
   },
+
+  keys = {
+    { key = 'd', mods = 'CMD', action = wz.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  },
 }
