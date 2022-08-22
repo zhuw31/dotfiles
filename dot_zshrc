@@ -1,10 +1,5 @@
 eval "$(starship init zsh)"
-eval "$(fnm env)"
 
-source ~/.zsh/zsh-alias.zsh
-source ~/.zsh/z.sh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
@@ -17,3 +12,14 @@ fi
 export LANG="en_US.UTF-8"
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/.zsh/zsh-alias.zsh
+source ~/.zsh/z.sh
+
+# pnpm
+export PNPM_HOME="/Users/zhuwei/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
