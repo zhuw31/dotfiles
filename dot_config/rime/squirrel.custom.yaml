@@ -47,3 +47,6 @@ patch:
     com.apple.Safari:
       ascii_mode: true
       inline: true
+    com.github.wez.wezterm:
+      ascii_mode: true
+      inline: true
