@@ -22,6 +22,20 @@ Lastly, pull and apply my dotfiles:
 chezmoi init --apply --verbose https://github.com/zhuw31/dotfiles.git
 ```
 
+Let's install some tools for frontend devs.
+
+1. pnpm
+
+```sh
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+2. node
+
+```sh
+pnpm env use --global lts
+```
+
 ---
 
 Happy coding!:rocket:
