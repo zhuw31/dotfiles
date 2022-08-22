@@ -31,8 +31,6 @@ telescope.setup {
         ['<C-Up>'] = actions.cycle_history_prev,
         ['<C-h>'] = actions_layout.toggle_preview,
 
-        ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
-        ['<A-q>'] = false,
         ['<C-c>'] = actions.close,
       },
       n = {
