@@ -9,6 +9,11 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+function set_win_title(){
+    echo -ne "\033]0; $(basename "$PWD") \007"
+}
+precmd_functions+=(set_win_title)
+
 export LANG="en_US.UTF-8"
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
