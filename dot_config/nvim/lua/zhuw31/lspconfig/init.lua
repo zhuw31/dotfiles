@@ -129,6 +129,7 @@ local servers = {
   'bashls',
   'tailwindcss',
   'null-ls',
+  'taplo',
 }
 
 for _, server in ipairs(servers) do
