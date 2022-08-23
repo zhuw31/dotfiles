@@ -23,3 +23,9 @@ source ~/.zsh/z.sh
 export PNPM_HOME="/Users/zhuwei/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# bun completions
+[ -s "/Users/zhuwei/.bun/_bun" ] && source "/Users/zhuwei/.bun/_bun"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
