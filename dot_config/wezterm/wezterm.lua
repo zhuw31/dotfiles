@@ -12,6 +12,7 @@ return {
   font_size = 16.0,
   color_scheme = 'nord',
   use_fancy_tab_bar = false,
+  tab_bar_at_bottom = true,
   keys = {
     { key = 'd', mods = 'CMD', action = wz.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   },
