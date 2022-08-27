@@ -15,6 +15,7 @@ lspsaga.init_lsp_saga {
     vsplit = 'v',
     split = 's',
   },
+  rename_in_select = false,
   symbol_in_winbar = {
     enable = false,
     separator = '  ',
