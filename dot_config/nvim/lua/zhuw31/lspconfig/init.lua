@@ -29,9 +29,7 @@ local config = {
   severity_sort = true,
   float = {
     source = 'always',
-    focusable = false,
-    style = 'minimal',
-    border = 'rounded',
+    border = 'single',
     header = '',
     prefix = '',
   },
@@ -40,10 +38,10 @@ local config = {
 vim.diagnostic.config(config)
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
+  border = 'single',
 })
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = 'rounded',
+  border = 'single',
 })
 
 --[[ local function lsp_highlight_document(client, bufnr)
