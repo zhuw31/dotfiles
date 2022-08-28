@@ -20,13 +20,6 @@ local types = require 'luasnip.util.types'
 ls.config.setup {
   -- This one is cool cause if you have dynamic snippets, it updates as you type!
   update_events = 'TextChanged,TextChangedI',
-  ext_opts = {
-    [types.choiceNode] = {
-      active = {
-        virt_text = { { '●', 'SpecialKey' } },
-      },
-    },
-  },
 }
 
 ls.add_snippets('all', {
@@ -113,6 +106,36 @@ ls.add_snippets('typescript', {
       i(2),
       i(3),
     })
+  ),
+  s(
+    'ue',
+    fmt(
+      [[
+    useEffect(() => {{
+      {}
+    }}, [{}])
+    ]],
+      {
+        c(2, {
+          t '// TODO:',
+          fmt(
+            [[
+          async function {}() {{
+            {}
+          }}
+
+          {}()
+          ]],
+            {
+              i(1),
+              i(2, '// TODO:'),
+              rep(1),
+            }
+          ),
+        }),
+        i(1, 'dep'),
+      }
+    )
   ),
   s(
     'de',
