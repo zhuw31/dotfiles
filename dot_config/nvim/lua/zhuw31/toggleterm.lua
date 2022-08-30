@@ -49,4 +49,4 @@ local function npm_toggle()
 end
 
 vim.keymap.set('n', '<leader>lg', lazygit_toggle)
-vim.keymap.set('n', '<leader>ys', npm_toggle)
+vim.keymap.set('n', '<leader>rs', npm_toggle)
