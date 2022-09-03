@@ -10,6 +10,10 @@ end)
 
 return {
   font_size = 16.0,
+  font = wz.font_with_fallback {
+    'JetBrains Mono',
+    { family = 'Microsoft YaHei', scale = 1.5 },
+  },
   color_scheme = 'nord',
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
