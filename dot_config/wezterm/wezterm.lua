@@ -9,14 +9,16 @@ wz.on('update-right-status', function(window)
 end)
 
 return {
-  font_size = 16.0,
+  font_size = 20.0,
   font = wz.font_with_fallback {
-    'JetBrains Mono',
-    { family = 'Microsoft YaHei', scale = 1.5 },
+    { family = 'Inconsolata', weight = 'Regular' },
+    { family = 'InconsolataGo Nerd Font', weight = 'Regular' },
+    { family = 'Apple Color Emoji' },
   },
   color_scheme = 'nord',
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
+  native_macos_fullscreen_mode = true,
   keys = {
     { key = 'd', mods = 'CMD', action = wz.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   },
