@@ -8,6 +8,9 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
+-- nord theme
+vim.g.nord_italic = false
+
 -- options
 local options = {
   termguicolors = true,
