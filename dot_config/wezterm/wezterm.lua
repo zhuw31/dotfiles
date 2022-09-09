@@ -11,8 +11,8 @@ end)
 return {
   font_size = 20.0,
   font = wz.font_with_fallback {
-    { family = 'Inconsolata', weight = 'Regular' },
-    { family = 'InconsolataGo Nerd Font', weight = 'Regular' },
+    { family = 'Inconsolata' },
+    { family = 'InconsolataGo Nerd Font' },
     { family = 'Apple Color Emoji' },
   },
   color_scheme = 'nord',
