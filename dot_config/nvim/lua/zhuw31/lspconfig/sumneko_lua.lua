@@ -1,13 +1,21 @@
 local M = {}
 
 M.setup = function(on_attach, capabilities)
-  local luadev = require('lua-dev').setup {
-    lspconfig = {
-      on_attach = on_attach,
-      capabilities = capabilities,
+  require('lspconfig').sumneko_lua.setup {
+    on_attach,
+    capabilities,
+    single_file_support = true,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
     },
   }
-  require('lspconfig').sumneko_lua.setup(luadev)
 end
 
 return M

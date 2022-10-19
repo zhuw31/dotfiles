@@ -44,7 +44,6 @@ packer.startup {
       'glepnir/lspsaga.nvim',
       'jose-elias-alvarez/typescript.nvim',
       'jose-elias-alvarez/null-ls.nvim',
-      'folke/lua-dev.nvim',
       'b0o/schemastore.nvim',
     }
     use {
