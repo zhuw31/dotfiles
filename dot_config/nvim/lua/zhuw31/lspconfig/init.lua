@@ -44,7 +44,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
   border = 'single',
 })
 
---[[ local function lsp_highlight_document(client, bufnr)
+local function lsp_highlight_document(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_augroup('lsp_document_highlight', {
@@ -65,7 +65,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
       callback = vim.lsp.buf.clear_references,
     })
   end
-end ]]
+end
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format {
@@ -102,18 +102,8 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(client, bufnr)
-  if client.supports_method 'textDocument/formatting' then
-    vim.api.nvim_clear_autocmds { group = lsp_formatting_group, buffer = bufnr }
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      group = lsp_formatting_group,
-      buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
-    })
-  end
   buf_set_keymap(bufnr)
-  --[[ lsp_highlight_document(client, bufnr) ]]
+  lsp_highlight_document(client, bufnr)
 end
 
 local servers = {
