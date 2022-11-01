@@ -11,7 +11,6 @@ function M.setup(on_attach)
     f.prettierd,
     f.stylua,
     d.eslint,
-    d.stylelint.with { prefer_local = 'node_modules/.bin' },
     ca.eslint,
     ca.gitsigns,
   }
