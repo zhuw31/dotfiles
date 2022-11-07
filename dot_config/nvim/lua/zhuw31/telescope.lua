@@ -26,12 +26,11 @@ telescope.setup {
       i = {
         ['<C-s>'] = actions.cycle_previewers_next,
         ['<C-a>'] = actions.cycle_previewers_prev,
-
         ['<C-Down>'] = actions.cycle_history_next,
         ['<C-Up>'] = actions.cycle_history_prev,
         ['<C-h>'] = actions_layout.toggle_preview,
-
         ['<C-c>'] = actions.close,
+        ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
       },
       n = {
         ['<C-c>'] = actions.close,
