@@ -38,7 +38,7 @@ patch:
       inline: true
     com.alibaba.DingTalkMac:
       ascii_mode: false
-    io.alacritty:
+    org.alacritty:
       ascii_mode: true
       inline: true
     net.kovidgoyal.kitty:
