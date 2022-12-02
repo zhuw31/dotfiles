@@ -31,7 +31,14 @@ packer.startup {
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
     use 'shaunsingh/nord.nvim'
-    use 'folke/tokyonight.nvim'
+    use {
+      'folke/tokyonight.nvim',
+      config = function()
+        require('tokyonight').setup {
+          style = 'day',
+        }
+      end,
+    }
     use {
       'nvim-telescope/telescope.nvim',
       'nvim-telescope/telescope-fzy-native.nvim',
