@@ -61,27 +61,6 @@ ls.add_snippets('typescript', {
     )
   ),
   s(
-    'co',
-    fmt('const {} = {}', {
-      i(2),
-      i(1),
-    })
-  ),
-  s(
-    'imp',
-    fmt("import {} from '{}'", {
-      i(2),
-      i(1),
-    })
-  ),
-  s(
-    'imd',
-    fmt("import {{{}}} from '{}'", {
-      i(2),
-      i(1),
-    })
-  ),
-  s(
     'iff',
     fmt(
       [[
