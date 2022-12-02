@@ -32,6 +32,7 @@ packer.startup {
     use 'dstein64/vim-startuptime'
     use 'shaunsingh/nord.nvim'
     use 'folke/tokyonight.nvim'
+    use { 'catppuccin/nvim', as = 'catppuccin' }
     use {
       'nvim-telescope/telescope.nvim',
       'nvim-telescope/telescope-fzy-native.nvim',

@@ -1,5 +1,4 @@
 local indent = 2
-local cmd = vim.cmd
 local opt = vim.opt
 
 vim.g.mapleader = ' '
@@ -60,16 +59,16 @@ opt.shortmess:append 'c'
 vim.g.nord_italic = false
 vim.g.nord_cursorline_transparent = true
 
-require('tokyonight').setup {
-  style = 'moon',
-}
-
 -- Set colorscheme
-local colorscheme = 'tokyonight'
-local colorscheme_ok = pcall(require, colorscheme)
-if colorscheme_ok then
-  cmd('colorscheme ' .. colorscheme)
-end
+local colorscheme = 'catppuccin'
+require(colorscheme).setup {
+  flavour = 'frappe',
+  background = {
+    light = 'latte',
+    dark = 'frappe',
+  },
+}
+vim.cmd.colorscheme(colorscheme)
 
 local augroup_clear = { clear = true }
 -- Highlight when yank
