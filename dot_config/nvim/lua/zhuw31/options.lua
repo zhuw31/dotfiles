@@ -60,6 +60,10 @@ opt.shortmess:append 'c'
 vim.g.nord_italic = false
 vim.g.nord_cursorline_transparent = true
 
+require('tokyonight').setup {
+  style = 'moon',
+}
+
 -- Set colorscheme
 local colorscheme = 'tokyonight'
 local colorscheme_ok = pcall(require, colorscheme)
