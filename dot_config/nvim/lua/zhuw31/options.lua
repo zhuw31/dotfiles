@@ -61,7 +61,7 @@ vim.g.nord_italic = false
 vim.g.nord_cursorline_transparent = true
 
 -- Set colorscheme
-local colorscheme = 'nord'
+local colorscheme = 'tokyonight'
 local colorscheme_ok = pcall(require, colorscheme)
 if colorscheme_ok then
   cmd('colorscheme ' .. colorscheme)

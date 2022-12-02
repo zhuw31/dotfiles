@@ -31,6 +31,7 @@ packer.startup {
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
     use 'shaunsingh/nord.nvim'
+    use 'folke/tokyonight.nvim'
     use {
       'nvim-telescope/telescope.nvim',
       'nvim-telescope/telescope-fzy-native.nvim',
