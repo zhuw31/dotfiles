@@ -4,13 +4,8 @@
 add_newline = false
 command_timeout = 2000
 
-[character]
-success_symbol = "[>](bold green)"
-error_symbol = "[>](bold red)"
-vimcmd_symbol = "[<](bold green)"
-
 [kubernetes]
 disabled = false
 
 [git_branch]
-symbol = "ﯙ "
+symbol = " "
