@@ -4,7 +4,9 @@ if not ok or not ok_lsp then
   return
 end
 
-mason.setup()
+mason.setup {
+  max_concurrent_installers = 10,
+}
 mason_lspconfig.setup {
   automatic_installation = true,
 }
