@@ -41,6 +41,7 @@ packer.startup {
     use {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
       'neovim/nvim-lspconfig',
       'glepnir/lspsaga.nvim',
       'jose-elias-alvarez/typescript.nvim',

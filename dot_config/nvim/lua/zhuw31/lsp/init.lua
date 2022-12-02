@@ -120,5 +120,5 @@ local servers = {
 }
 
 for _, server in ipairs(servers) do
-  require('zhuw31.lspconfig.' .. server).setup(on_attach, capabilities)
+  require('zhuw31.lsp.' .. server).setup(on_attach, capabilities)
 end

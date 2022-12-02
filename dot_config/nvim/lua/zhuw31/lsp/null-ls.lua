@@ -10,8 +10,8 @@ function M.setup(on_attach)
   local sources = {
     f.prettierd,
     f.stylua,
-    d.eslint,
-    ca.eslint,
+    d.eslint_d,
+    ca.eslint_d,
     ca.gitsigns,
   }
 

@@ -102,3 +102,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     os.execute('chezmoi apply --source-path ' .. opts.file)
   end,
 })
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MasonToolsUpdateCompleted',
+  callback = function()
+    vim.schedule(function()
+      print 'mason-tool-installer has finished'
+    end)
+  end,
+})
