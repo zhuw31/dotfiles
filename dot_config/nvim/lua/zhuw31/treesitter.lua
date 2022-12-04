@@ -37,4 +37,13 @@ configs.setup {
     enable = true,
     enable_autocmd = false,
   },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+      },
+    },
+  },
 }

@@ -65,11 +65,12 @@ packer.startup {
     use 'gpanders/editorconfig.nvim'
     use {
       { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
+      'nvim-treesitter/nvim-treesitter-textobjects',
       'JoosepAlviste/nvim-ts-context-commentstring',
     }
     use 'windwp/nvim-autopairs'
     use 'numToStr/Comment.nvim'
-    use 'tpope/vim-surround'
+    use 'kylechui/nvim-surround'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'mzlogin/vim-markdown-toc'
     use 'kyazdani42/nvim-tree.lua'
