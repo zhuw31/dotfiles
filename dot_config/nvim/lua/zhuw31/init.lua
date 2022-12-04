@@ -1,5 +1,7 @@
 require 'zhuw31.disable_builtins'
+require 'zhuw31.colorscheme'
 require 'zhuw31.options'
+require 'zhuw31.autocmd'
 require 'zhuw31.plugins'
 require 'zhuw31.mason_installer'
 require 'zhuw31.keymaps'
