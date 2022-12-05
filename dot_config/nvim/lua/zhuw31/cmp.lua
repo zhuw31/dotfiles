@@ -1,5 +1,6 @@
 local ok, cmp = pcall(require, 'cmp')
-if not ok then
+local ls_ok, ls = pcall(require, 'luasnip')
+if not ok or not ls_ok then
   return
 end
 
@@ -32,6 +33,11 @@ local kind_icons = {
 }
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      ls.lsp_expand(args.body)
+    end,
+  },
   fields = { 'kind', 'abbr', 'menu' },
   window = {
     completion = cmp.config.window.bordered(),
