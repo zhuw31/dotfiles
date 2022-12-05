@@ -25,9 +25,16 @@ ls.config.setup {
 ls.add_snippets('typescript', {
   s(
     'clg',
-    fmt('console.log({})', {
-      i(1, 'var'),
-    })
+    fmt(
+      [[
+        console.log({{
+          {}
+        }})
+      ]],
+      {
+        i(1, 'var'),
+      }
+    )
   ),
   s(
     'iff',

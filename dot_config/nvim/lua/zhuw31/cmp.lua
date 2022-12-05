@@ -1,6 +1,5 @@
 local ok, cmp = pcall(require, 'cmp')
-local ok_ls, ls = pcall(require, 'luasnip')
-if not ok or not ok_ls then
+if not ok then
   return
 end
 
@@ -38,11 +37,6 @@ cmp.setup {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  snippet = {
-    expand = function(args)
-      ls.lsp_expand(args.body) -- For `luasnip` users.
-    end,
-  },
   mapping = cmp.mapping.preset.insert {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -57,7 +51,6 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'luasnip' },
     { name = 'buffer', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help' },
   },
@@ -69,7 +62,6 @@ cmp.setup {
         nvim_lua = '[Lua]',
         path = '[Path]',
         buffer = '[Buffer]',
-        luasnip = '[Snippet]',
       })[entry.source.name]
       return vim_item
     end,
