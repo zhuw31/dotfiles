@@ -1,5 +1,9 @@
 local ok, colorscheme = pcall(require, 'catppuccin')
 
+if not ok then
+  return
+end
+
 colorscheme.setup {
   flavour = 'frappe',
   background = {
@@ -8,4 +12,4 @@ colorscheme.setup {
   },
 }
 
-vim.cmd.colorscheme(colorscheme)
+vim.cmd.colorscheme 'catppuccin'
