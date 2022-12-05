@@ -22,43 +22,12 @@ ls.config.setup {
   update_events = 'TextChanged,TextChangedI',
 }
 
-ls.add_snippets('all', {
-  s(
-    'req',
-    fmt([[local {} = require "{}"]], {
-      f(function(import_name)
-        vim.pretty_print(import_name)
-        local parts = vim.split(import_name[1][1], '.', true)
-        return parts[#parts]
-      end, { 1 }),
-      i(1),
-    })
-  ),
-})
-
 ls.add_snippets('typescript', {
   s(
     'clg',
-    fmt('console.{}({})', {
-      c(1, { t 'dir', t 'log', t 'error' }),
-      i(2, 'var'),
+    fmt('console.log({})', {
+      i(1, 'var'),
     })
-  ),
-  s(
-    'efn',
-    fmt(
-      [[
-    export{} function {}({}) {{
-      {}
-    }}
-    ]],
-      {
-        c(1, { t '', t ' async' }),
-        i(2, 'funcName'),
-        i(3, 'params'),
-        i(4, '// TODO:'),
-      }
-    )
   ),
   s(
     'iff',
@@ -130,6 +99,24 @@ ls.add_snippets('typescript', {
           t '.concurrent',
         }),
         i(2),
+        i(3, '// TODO:'),
+      }
+    )
+  ),
+  s(
+    'te',
+    fmt(
+      [[
+      test("{}", {}() => {{
+        {}
+      }})
+      ]],
+      {
+        i(1),
+        c(2, {
+          t '',
+          t 'async ',
+        }),
         i(3, '// TODO:'),
       }
     )
