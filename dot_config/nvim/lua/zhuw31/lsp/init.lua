@@ -46,29 +46,6 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
   border = 'single',
 })
 
--- local function lsp_highlight_document(client, bufnr)
---   -- Set autocommands conditional on server_capabilities
---   if client.server_capabilities.documentHighlightProvider then
---     vim.api.nvim_create_augroup('lsp_document_highlight', {
---       clear = false,
---     })
---     vim.api.nvim_clear_autocmds {
---       buffer = bufnr,
---       group = 'lsp_document_highlight',
---     }
---     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
---       group = 'lsp_document_highlight',
---       buffer = bufnr,
---       callback = vim.lsp.buf.document_highlight,
---     })
---     vim.api.nvim_create_autocmd('CursorMoved', {
---       group = 'lsp_document_highlight',
---       buffer = bufnr,
---       callback = vim.lsp.buf.clear_references,
---     })
---   end
--- end
-
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format {
     filter = function(client)
@@ -78,9 +55,6 @@ local lsp_formatting = function(bufnr)
     bufnr = bufnr or 0,
   }
 end
-
--- if you want to set up formatting on save, you can use this as a callback
--- local lsp_formatting_group = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local function buf_set_keymap(bufnr)
   -- vim.keymap.set('n', 'go', vim.diagnostic.open_float)
@@ -105,7 +79,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(_, bufnr)
   buf_set_keymap(bufnr)
-  -- lsp_highlight_document(client, bufnr)
 end
 
 local servers = {

@@ -23,19 +23,29 @@ packer.startup {
     use 'lewis6991/impatient.nvim'
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
-    use 'folke/tokyonight.nvim'
     use { 'catppuccin/nvim', as = 'catppuccin' }
     use {
-      'nvim-telescope/telescope.nvim',
-      'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
+    }
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' },
+      keys = { '<leader>ff' },
+      config = function()
+        require 'zhuw31.telescope'
+      end,
     }
     use {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'neovim/nvim-lspconfig',
+      {
+        'neovim/nvim-lspconfig',
+        config = function()
+          require 'zhuw31.lsp'
+        end,
+      },
       'glepnir/lspsaga.nvim',
       'jose-elias-alvarez/typescript.nvim',
       'jose-elias-alvarez/null-ls.nvim',
@@ -49,10 +59,22 @@ packer.startup {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      'L3MON4D3/LuaSnip',
+      {
+        'L3MON4D3/LuaSnip',
+        event = 'InsertCharPre',
+        config = function()
+          require 'zhuw31.luasnip'
+        end,
+      },
     }
     use 'kyazdani42/nvim-web-devicons'
-    use 'hoob3rt/lualine.nvim'
+    use {
+      'hoob3rt/lualine.nvim',
+      event = 'VimEnter',
+      config = function()
+        require 'zhuw31.lualine'
+      end,
+    }
     use 'gpanders/editorconfig.nvim'
     use {
       { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -64,7 +86,13 @@ packer.startup {
     use 'kylechui/nvim-surround'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'mzlogin/vim-markdown-toc'
-    use 'kyazdani42/nvim-tree.lua'
+    use {
+      'kyazdani42/nvim-tree.lua',
+      keys = '<leader>e',
+      config = function()
+        require 'zhuw31.nvimtree'
+      end,
+    }
     use 'lewis6991/gitsigns.nvim'
     use 'akinsho/toggleterm.nvim'
 
