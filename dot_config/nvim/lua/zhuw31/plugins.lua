@@ -23,7 +23,6 @@ packer.startup {
     use 'lewis6991/impatient.nvim'
     use 'wbthomason/packer.nvim'
     use 'dstein64/vim-startuptime'
-    use 'shaunsingh/nord.nvim'
     use 'folke/tokyonight.nvim'
     use { 'catppuccin/nvim', as = 'catppuccin' }
     use {
