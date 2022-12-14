@@ -82,6 +82,7 @@ packer.startup {
       'JoosepAlviste/nvim-ts-context-commentstring',
     }
     use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
     use 'numToStr/Comment.nvim'
     use 'kylechui/nvim-surround'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
