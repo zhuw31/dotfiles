@@ -13,6 +13,7 @@ function M.setup(on_attach)
     d.eslint_d,
     ca.eslint_d,
     ca.gitsigns,
+    require 'typescript.extensions.null-ls.code-actions',
   }
 
   null_ls.setup {
