@@ -50,6 +50,12 @@ packer.startup {
       'jose-elias-alvarez/typescript.nvim',
       'jose-elias-alvarez/null-ls.nvim',
       'b0o/schemastore.nvim',
+      {
+        'j-hui/fidget.nvim',
+        config = function()
+          require('fidget').setup {}
+        end,
+      },
     }
     use {
       'hrsh7th/nvim-cmp',
@@ -73,6 +79,15 @@ packer.startup {
       event = 'VimEnter',
       config = function()
         require 'zhuw31.lualine'
+      end,
+    }
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      config = function()
+        require('indent_blankline').setup {
+          char = '┊',
+          show_trailing_blankline_indent = false,
+        }
       end,
     }
     use 'gpanders/editorconfig.nvim'
