@@ -1,20 +1,21 @@
 eval "$(starship init zsh)"
 
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-    autoload -Uz compinit
-    compinit
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Download Znap, if it's not there yet.
+[[ -f ~/.zsh/zsh-snap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.zsh/zsh-snap
+
+source ~/.zsh/zsh-snap/znap.zsh  # Start Znap
+
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
 
 export LANG="en_US.UTF-8"
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.zsh/zsh-alias.zsh
 source ~/.zsh/z.sh
