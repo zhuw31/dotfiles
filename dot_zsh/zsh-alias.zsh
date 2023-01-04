@@ -1,9 +1,15 @@
+# nvim
 alias v="nvim"
+# lazygit
 alias lg="lazygit"
+# ls
 alias la="ls -lah --color=auto"
+# source zsh
 alias sz="source ~/.zshrc"
+# npm
 alias ns="npm start"
 alias ngl="npm list -g"
+# yarn
 alias y="yarn"
 alias ys="yarn start"
 alias yp="yarn pstart"
@@ -14,6 +20,9 @@ alias yga="yarn global add"
 alias yr="yarn remove"
 alias ygl="yarn global list"
 alias yo="yarn outdated"
+# pnpm
+alias pn="pnpm"
+# git
 alias gs="git status"
 function gc { git commit -m "$@"; }
 alias gcb="git checkout -b"
@@ -25,12 +34,16 @@ alias gd="git diff"
 alias gst="git status"
 alias gfp="git fetch -p"
 alias glog="git log --oneline --pretty --graph"
+# chrome debug
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
+# chezmoi
 alias c="chezmoi"
+alias cu="chezmoi update"
+# kubetcl
 alias k="kubectl"
 alias kgp="kubectl get pods"
 alias kcu="kubectl config use-context"
 alias kcn="kubectl config set-context --current --namespace"
-alias pn="pnpm"
+# proxy
 alias setproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias unsetproxy="unset https_proxy http_proxy all_proxy"
