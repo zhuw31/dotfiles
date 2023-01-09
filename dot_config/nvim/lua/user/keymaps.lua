@@ -18,11 +18,6 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increa
 vim.keymap.set("n", "[p", ":pu!<cr>", { desc = "Paste below" })
 vim.keymap.set("n", "]p", ":pu<cr>", { desc = "Paste above" })
 
--- Clear search with <esc>
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
-vim.keymap.set("n", "gw", "*N")
-vim.keymap.set("x", "gw", "*N")
-
 -- Add undo break-points
 vim.keymap.set("i", ",", ",<c-g>u")
 vim.keymap.set("i", ".", ".<c-g>u")

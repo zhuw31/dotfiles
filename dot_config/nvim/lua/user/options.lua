@@ -13,6 +13,7 @@ vim.opt.list = true -- Show some invisible characters (tabs...
 vim.opt.mouse = "a" -- enable mouse mode
 vim.opt.number = true -- Print line number
 vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.hlsearch = false -- Disable hlseach
 vim.opt.pumblend = 10 -- Popup blend
 vim.opt.pumheight = 10 -- Maximum number of entries in a popup
 vim.opt.scrolloff = 4 -- Lines of context
