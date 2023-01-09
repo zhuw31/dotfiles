@@ -36,5 +36,5 @@ require("lazy").setup('user.plugins', {
   },
 })
 
-require('user.options')
-require('user.keymaps')
+require('user.configs.options')
+require('user.configs.keymaps')

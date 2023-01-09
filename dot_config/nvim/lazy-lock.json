@@ -1,9 +1,10 @@
 {
   "catppuccin": { "branch": "main", "commit": "3020af75aae098a77737d91ee37c7147c8450d99" },
-  "lazy.nvim": { "branch": "main", "commit": "e77be3cf3b01402b86464e1734fb5ead448ce12e" },
+  "lazy.nvim": { "branch": "main", "commit": "4304035ef4eae2d9dfac4fc082a1b391e6cd928e" },
+  "lualine.nvim": { "branch": "master", "commit": "d8c392dd75778d6258da4e7c55522e94ac389732" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "3b41f0d17139bb156f1acd907608f63e0e307caf" },
   "nui.nvim": { "branch": "main", "commit": "257da38029d3859ed111804f9d4e95b0fa993a31" },
-  "nvim-treesitter": { "branch": "master", "commit": "3e316204f8ec8450bbaace69d0bf8fe332633fec" },
+  "nvim-treesitter": { "branch": "master", "commit": "d8c84521dc9f407f88dfca35b9572c6532207a4a" },
   "nvim-web-devicons": { "branch": "master", "commit": "7f55bc36eddec87597167a97de5b690997edaf7d" },
   "plenary.nvim": { "branch": "master", "commit": "9d81624fbcedd3dd43b38d7e13a1e7b3f873d8cd" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "fab3e2212e206f4f8b3bbaa656e129443c9b802e" },
