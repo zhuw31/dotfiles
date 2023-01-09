@@ -13,9 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 
-require('user.options')
-require('user.keymaps')
-
 require("lazy").setup('user.plugins', {
   defaults = { lazy = true },
   install = { colorscheme = { "catppuccin", "habamax" } },
@@ -38,3 +35,6 @@ require("lazy").setup('user.plugins', {
     },
   },
 })
+
+require('user.options')
+require('user.keymaps')
