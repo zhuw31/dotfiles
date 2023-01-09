@@ -1,0 +1,43 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = "BufReadPost",
+    opts = {
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+      context_commentstring = { enable = true, enable_autocmd = false },
+      ensure_installed = {
+        "bash",
+        "css",
+        "dockerfile",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "help",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "json5",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "pug",
+        "python",
+        "rust",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vue",
+        "yaml",
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+}
