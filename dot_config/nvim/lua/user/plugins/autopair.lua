@@ -1,7 +1,10 @@
 return {
+  -- auto pairs
   {
-    "windwp/nvim-autopairs",
+    "echasnovski/mini.pairs",
     event = "VeryLazy",
-    config = true,
+    config = function(_, opts)
+      require("mini.pairs").setup(opts)
+    end,
   },
 }
