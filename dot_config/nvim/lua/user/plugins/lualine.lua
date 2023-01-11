@@ -6,7 +6,7 @@ return {
       "nvim-tree/nvim-web-devicons"
     },
     opts = function(plugin)
-      local icons = require('user.configs.settings').icons
+      local icons = require('user.configs').icons
 
       local function fg(name)
         return function()

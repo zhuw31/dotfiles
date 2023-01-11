@@ -12,9 +12,13 @@ return {
     },
     opts = {
       filesystem = {
-        visible = true,
         follow_current_file = true,
       },
+      window = {
+        mappings = {
+          ['o'] = "open",
+        }
+      }
     },
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
