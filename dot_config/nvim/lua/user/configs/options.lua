@@ -1,3 +1,4 @@
+print('load user.configs.options')
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.conceallevel = 3 -- Hide * markup for bold and italic
@@ -37,13 +38,15 @@ vim.opt.updatetime = 200 -- save swap file and trigger CursorHold
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.go.winminwidth = 5 -- minimum window width
 vim.opt.wrap = false
+vim.opt.laststatus = 0
+vim.opt.cmdheight = 0
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = "screen"
   vim.o.shortmess = "filnxtToOFWIcC"
 end
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme('catppuccin')
 
 -- fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

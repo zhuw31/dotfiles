@@ -1,5 +1,5 @@
----@class LazyVimSettings
-local settings = {
+return {
+  -- icons used by other plugins
   icons = {
     diagnostics = {
       Error = " ",
@@ -50,5 +50,3 @@ local settings = {
     },
   },
 }
-
-return settings
