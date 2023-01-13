@@ -4,20 +4,20 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {
       preview_config = { border = "rounded" },
-      on_attach = function(bufnr)
+      on_attach = function(buffer)
         local gs = require("gitsigns")
 
         vim.keymap.set("n", "]c", function()
           if vim.wo.diff then return "]c" end
           vim.schedule(gs.next_hunk)
           return "<Ignore>"
-        end, { expr = true, buffer = bufnr })
+        end, { expr = true, buffer = buffer })
 
         vim.keymap.set("n", "[c", function()
           if vim.wo.diff then return "[c" end
           vim.schedule(gs.prev_hunk)
           return "<Ignore>"
-        end, { expr = true, buffer = bufnr })
+        end, { expr = true, buffer = buffer })
 
         local function map(mode, l, r, desc)
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })

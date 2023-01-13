@@ -7,7 +7,7 @@ local opt = vim.opt
 opt.clipboard = "unnamedplus"
 
 -- Completion
-opt.completeopt = { "menuone", "noselect" }
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Folding
 opt.foldmethod = "expr"

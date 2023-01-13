@@ -10,6 +10,7 @@ return {
     opts = {
       hooks = {
         pre = function()
+          ---@diagnostic disable-next-line
           require('ts_context_commentstring.internal').update_commentstring()
         end,
       },

@@ -5,13 +5,6 @@ M.lazy_version = ">=9.1.0"
 
 ---@class LazyVimConfig
 local defaults = {
-  -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
-  ---@type string|fun()
-  colorscheme = function()
-    require("catppuccin").setup({
-      flavour = "frappe"
-    })
-  end,
   -- icons used by other plugins
   icons = {
     diagnostics = {
