@@ -12,6 +12,7 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 -- Folding
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
 
 -- Search
 opt.ignorecase = true
