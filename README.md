@@ -22,6 +22,12 @@ Lastly, pull and apply my dotfiles:
 chezmoi init --apply --verbose https://github.com/zhuw31/dotfiles.git
 ```
 
+You can now install brew packages.
+
+```sh
+brew bundle --file="~/.Brewfile"
+```
+
 Let's install some tools for frontend devs.
 
 1. pnpm
