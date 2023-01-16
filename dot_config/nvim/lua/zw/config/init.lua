@@ -11,7 +11,7 @@ local defaults = {
       Error = " ",
       Warn = " ",
       Hint = " ",
-      Info = " " 
+      Info = " ",
     },
     git = {
       added = " ",
@@ -65,11 +65,11 @@ function M.setup(opts)
   options = vim.tbl_deep_extend("force", defaults, opts or {})
   if not M.has() then
     require("lazy.core.util").error(
-    "**LazyVim** needs **lazy.nvim** version "
-    .. M.lazy_version
-    .. " to work properly.\n"
-    .. "Please upgrade **lazy.nvim**",
-    { title = "LazyVim" }
+      "**LazyVim** needs **lazy.nvim** version "
+        .. M.lazy_version
+        .. " to work properly.\n"
+        .. "Please upgrade **lazy.nvim**",
+      { title = "LazyVim" }
     )
   end
 
@@ -96,12 +96,12 @@ function M.setup(opts)
       vim.cmd.colorscheme(M.colorscheme)
     end
   end, {
-  msg = "Could not load your colorscheme",
-  on_error = function(msg)
-    require("lazy.core.util").error(msg)
-    vim.cmd.colorscheme("habamax")
-  end,
-})
+    msg = "Could not load your colorscheme",
+    on_error = function(msg)
+      require("lazy.core.util").error(msg)
+      vim.cmd.colorscheme("habamax")
+    end,
+  })
 end
 
 ---@param range? string
@@ -118,19 +118,19 @@ function M.load(name)
     Util.try(function()
       require(mod)
     end, {
-    msg = "Failed loading " .. mod,
-    on_error = function(msg)
-      local modpath = require("lazy.core.cache").find(mod)
-      if modpath then
-        Util.error(msg)
-      end
-    end,
-  })
-end
-if vim.bo.filetype == "lazy" then
-  -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
-  vim.cmd([[do VimResized]])
-end
+      msg = "Failed loading " .. mod,
+      on_error = function(msg)
+        local modpath = require("lazy.core.cache").find(mod)
+        if modpath then
+          Util.error(msg)
+        end
+      end,
+    })
+  end
+  if vim.bo.filetype == "lazy" then
+    -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
+    vim.cmd([[do VimResized]])
+  end
 end
 
 M.did_init = false

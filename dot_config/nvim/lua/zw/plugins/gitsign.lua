@@ -8,16 +8,26 @@ return {
         local gs = require("gitsigns")
 
         vim.keymap.set("n", "]c", function()
-          if vim.wo.diff then return "]c" end
+          if vim.wo.diff then
+            return "]c"
+          end
           vim.schedule(gs.next_hunk)
           return "<Ignore>"
-        end, { expr = true, buffer = buffer })
+        end, {
+          expr = true,
+          buffer = buffer,
+        })
 
         vim.keymap.set("n", "[c", function()
-          if vim.wo.diff then return "[c" end
+          if vim.wo.diff then
+            return "[c"
+          end
           vim.schedule(gs.prev_hunk)
           return "<Ignore>"
-        end, { expr = true, buffer = buffer })
+        end, {
+          expr = true,
+          buffer = buffer,
+        })
 
         local function map(mode, l, r, desc)
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
@@ -28,11 +38,11 @@ return {
         map("n", "<leader>hS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>hR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>hp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame Line")
-
+        map("n", "<leader>hb", function()
+          gs.blame_line({ full = true })
+        end, "Blame Line")
       end,
     },
     event = "BufReadPre",
   },
-
 }

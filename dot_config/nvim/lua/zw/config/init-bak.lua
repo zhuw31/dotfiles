@@ -91,13 +91,13 @@ local options = {
       settings = {
         Lua = {
           workspace = {
-            checkThirdParty = false 
+            checkThirdParty = false,
           },
           telemetry = {
             enable = false,
           },
           diagnostics = {
-            globals = {'vim'},
+            globals = { "vim" },
           },
         },
       },

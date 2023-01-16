@@ -30,7 +30,7 @@ return {
             json = {
               validate = { enable = true },
             },
-          }
+          },
         },
         marksman = {},
         sumneko_lua = {
@@ -38,13 +38,13 @@ return {
           settings = {
             Lua = {
               workspace = {
-                checkThirdParty = false
+                checkThirdParty = false,
               },
               telemetry = {
                 enable = false,
               },
               diagnostics = {
-                globals = {'vim'},
+                globals = { "vim" },
               },
             },
           },
@@ -58,7 +58,12 @@ return {
         tsserver = function(_, opts)
           require("zw.util").on_attach(function(client, buffer)
             if client.name == "tsserver" then
-              vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+              vim.keymap.set(
+                "n",
+                "<leader>co",
+                "TypescriptOrganizeImports",
+                { buffer = buffer, desc = "Organize Imports" }
+              )
             end
           end)
           require("typescript").setup({ server = opts })
@@ -68,7 +73,6 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
-
       -- setup formatting and keymaps
       require("zw.util").on_attach(function(client, buffer)
         require("zw.plugins.lsp.format").on_attach(client, buffer)

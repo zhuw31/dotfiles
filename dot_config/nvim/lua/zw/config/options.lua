@@ -48,7 +48,7 @@ opt.laststatus = 0
 opt.pumheight = 10
 opt.scrolloff = 6
 opt.list = true
-opt.guicursor=""
+opt.guicursor = ""
 
 -- Column
 opt.number = true

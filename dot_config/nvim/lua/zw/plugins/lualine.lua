@@ -19,8 +19,8 @@ return {
           theme = "auto",
           globalstatus = true,
           disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-          section_separators = '',
-          component_separators = '',
+          section_separators = "",
+          component_separators = "",
         },
         sections = {
           lualine_a = { "mode" },
@@ -36,22 +36,34 @@ return {
               },
             },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { "filename", path = 0, },
+            { "filename", path = 0 },
           },
           lualine_x = {
             -- stylua: ignore
             {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = fg("Statement")
+              function()
+                return require("noice").api.status.command.get()
+              end,
+              cond = function()
+                return package.loaded["noice"] and require("noice").api.status.command.has()
+              end,
+              color = fg("Statement"),
             },
             -- stylua: ignore
             {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = fg("Constant") ,
+              function()
+                return require("noice").api.status.mode.get()
+              end,
+              cond = function()
+                return package.loaded["noice"] and require("noice").api.status.mode.has()
+              end,
+              color = fg("Constant"),
             },
-            { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
+            {
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates,
+              color = fg("Special"),
+            },
             {
               "diff",
               symbols = {

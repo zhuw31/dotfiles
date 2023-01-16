@@ -16,7 +16,8 @@ return {
             ls.jump(-1)
           end
         end,
-        silent = true, mode = { "i", "s" },
+        silent = true,
+        mode = { "i", "s" },
       },
       {
         "<C-k>",
@@ -26,7 +27,8 @@ return {
             ls.expand_or_jump()
           end
         end,
-        mode = {"s", "i"}, silent = true,
+        mode = { "s", "i" },
+        silent = true,
       },
       {
         "<C-l>",
@@ -36,7 +38,7 @@ return {
             ls.change_choice(1)
           end
         end,
-        mode = "i"
+        mode = "i",
       },
     },
   },

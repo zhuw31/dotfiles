@@ -14,13 +14,13 @@ return {
         follow_current_file = true,
         filtered_items = {
           visible = true,
-        }
+        },
       },
       window = {
         mappings = {
-          ['o'] = "open"
-        }
-      }
+          ["o"] = "open",
+        },
+      },
     },
   },
 }

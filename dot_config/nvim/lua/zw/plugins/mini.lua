@@ -5,13 +5,12 @@ return {
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
-    dependencies = {
-    },
+    dependencies = {},
     opts = {
       hooks = {
         pre = function()
           ---@diagnostic disable-next-line
-          require('ts_context_commentstring.internal').update_commentstring()
+          require("ts_context_commentstring.internal").update_commentstring()
         end,
       },
     },
