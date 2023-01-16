@@ -1,7 +1,10 @@
-local Util = require('zw.util')
+local Util = require("zw.util")
 return {
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
     cmd = "Telescope",
     version = false, -- telescope did only one release, so use HEAD for now
     keys = {
@@ -22,6 +25,11 @@ return {
       { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "[F]ind [M]arks" },
       { "<leader>fo", "<cmd>Telescope vim_options<cr>", desc = "[F]ind vim [O]ptions" },
     },
+    config = function(_, opts)
+      local telescope = require("telescope")
+      telescope.setup(opts)
+      telescope.load_extension("fzf")
+    end,
     init = function()
       if vim.fn.argc() == 1 then
         local stat = vim.loop.fs_stat(vim.fn.argv(0))
