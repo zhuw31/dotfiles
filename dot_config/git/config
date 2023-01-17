@@ -18,3 +18,8 @@
 	useHttpPath = true
 [credential "https://git.17bdc.com"]
 	provider = gitlab
+[maintenance]
+	repo = /Users/zhuwei/.zsh/zsh-autocomplete
+	repo = /Users/zhuwei/.zsh/zsh-autosuggestions
+	repo = /Users/zhuwei/.zsh/zsh-snap
+	repo = /Users/zhuwei/.zsh/zsh-syntax-highlighting
