@@ -11,9 +11,10 @@ alias ns="npm start"
 alias ngl="npm list -g"
 # yarn
 alias y="yarn"
-alias ys="yarn start"
-alias yp="yarn pstart"
-alias yc="yarn compile"
+alias ns="nr start"
+alias np="nr pstart"
+alias nc="nr compile"
+alias nb="nr build"
 alias ya="yarn add"
 alias yad="yarn add -D"
 alias yga="yarn global add"
@@ -22,6 +23,9 @@ alias ygl="yarn global list"
 alias yo="yarn outdated"
 # pnpm
 alias pn="pnpm"
+alias pa="pnpm add"
+alias pad="pnpm add -D"
+alias po="pnpm outdated --long"
 # git
 alias gs="git status"
 function gc { git commit -m "$@"; }
