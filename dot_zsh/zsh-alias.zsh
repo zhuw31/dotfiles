@@ -9,12 +9,14 @@ alias sz="source ~/.zshrc"
 # npm
 alias ns="npm start"
 alias ngl="npm list -g"
-# yarn
-alias y="yarn"
+# ni
 alias ns="nr start"
 alias np="nr pstart"
 alias nc="nr compile"
 alias nb="nr build"
+alias nd="nr dev"
+# yarn
+alias y="yarn"
 alias ya="yarn add"
 alias yad="yarn add -D"
 alias yga="yarn global add"
