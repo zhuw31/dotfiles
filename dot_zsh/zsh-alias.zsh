@@ -45,5 +45,5 @@ alias kgp="kubectl get pods"
 alias kcu="kubectl config use-context"
 alias kcn="kubectl config set-context --current --namespace"
 # proxy
-alias setproxy="export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;"
+alias setproxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias unsetproxy="unset https_proxy http_proxy all_proxy"
