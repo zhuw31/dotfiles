@@ -17,6 +17,7 @@ return {
         },
       },
       window = {
+        position = "float",
         mappings = {
           ["o"] = "open",
         },

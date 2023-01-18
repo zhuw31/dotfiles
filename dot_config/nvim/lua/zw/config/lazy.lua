@@ -15,9 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
     { import = "zw.plugins" },
+    { import = "zw.plugins.extras.lang.typescript" },
+    { import = "zw.plugins.extras.lang.json" },
   },
   defaults = { lazy = true },
   install = { colorscheme = { "catppuccin", "habamax" } },

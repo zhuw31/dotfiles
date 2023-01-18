@@ -19,19 +19,6 @@ return {
         cssls = {},
         dockerls = {},
         html = {},
-        jsonls = {
-          -- lazy-load schemastore when needed
-          on_new_config = function(new_config)
-            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-            ---@diagnostic disable-next-line
-            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-          end,
-          settings = {
-            json = {
-              validate = { enable = true },
-            },
-          },
-        },
         marksman = {},
         sumneko_lua = {
           single_file_support = true,
@@ -51,25 +38,9 @@ return {
         },
         tailwindcss = {},
         taplo = {},
-        tsserver = {},
         yamlls = {},
       },
-      setup = {
-        tsserver = function(_, opts)
-          require("zw.util").on_attach(function(client, buffer)
-            if client.name == "tsserver" then
-              vim.keymap.set(
-                "n",
-                "<leader>co",
-                "TypescriptOrganizeImports",
-                { buffer = buffer, desc = "Organize Imports" }
-              )
-            end
-          end)
-          require("typescript").setup({ server = opts })
-          return true
-        end,
-      },
+      setup = {},
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)

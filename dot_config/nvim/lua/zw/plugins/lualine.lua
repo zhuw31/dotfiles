@@ -3,7 +3,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    opts = function(plugin)
+    opts = function()
       local icons = require("zw.config").icons
 
       local function fg(name)
