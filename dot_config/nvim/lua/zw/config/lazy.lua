@@ -20,7 +20,6 @@ require("lazy").setup({
     { import = "zw.plugins.extras.lang.json" },
   },
   defaults = { lazy = true },
-  install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true },
   change_detection = {
     notify = false,
