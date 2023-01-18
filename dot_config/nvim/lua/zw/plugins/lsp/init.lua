@@ -11,9 +11,14 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "b0o/SchemaStore.nvim",
       "jose-elias-alvarez/typescript.nvim",
+      {
+        "smjonas/inc-rename.nvim",
+        config = true,
+      },
     },
     ---@class PluginLspOpts
     opts = {
+      format = { timeout_ms = 2000 },
       servers = {
         bashls = {},
         cssls = {},
