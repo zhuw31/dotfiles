@@ -1,133 +1,45 @@
-tap "buo/cask-upgrade"
-tap "dart-lang/dart"
-tap "epk/epk"
 tap "homebrew/bundle"
-tap "homebrew/cask", "https://github.com/Homebrew/homebrew-cask.git"
+tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "microsoft/git"
-tap "schniz/tap"
-# Search tool like grep, but optimized for programmers
 brew "ack"
-# Collection of portable C++ source libraries
-brew "boost"
-# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "bat"
 brew "btop"
-# Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# Cross-platform make
 brew "cmake"
-# International domain name library (IDNA2008, Punycode and TR46)
-brew "libidn2"
-# Open source suite of directory software
-brew "openldap"
-# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Secure runtime for JavaScript and TypeScript
-brew "deno"
-# Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
-# C++14 implementation of the TLS-1.3 standard
 brew "fizz"
-# Modular, composable client/server abstractions framework
 brew "wangle"
-# Facebook's branch of Apache Thrift, including a new C++ server
 brew "fbthrift"
-# Thrift functions for querying information from a service
 brew "fb303"
-# Simple, fast and user-friendly alternative to find
 brew "fd"
-# Command-line fuzzy finder written in Go
+brew "fish"
 brew "fzf"
-# Distributed revision control system
 brew "git"
-# Core application library for C
 brew "glib"
-# Render markdown on the CLI
-brew "glow"
-# Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Convert source code to formatted text with syntax highlighting
-brew "highlight"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
-# Tools and libraries to manipulate images in many formats
-brew "imagemagick"
-# Lightweight and flexible command-line JSON processor
 brew "jq"
-# Kubernetes command-line interface
 brew "kubernetes-cli"
-# Simple terminal UI for git commands
 brew "lazygit"
-# Terminal file manager
 brew "lf"
-# Just-In-Time Compiler (JIT) for the Lua programming language
+brew "python@3.9"
 brew "luajit"
-# Package manager for the Lua programming language
-brew "luarocks"
-# Collection of tools that nobody wrote when UNIX was young
-brew "moreutils"
-# Open source relational database management system
-brew "mysql", restart_service: true
-# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
-# PDF processor written in Go
-brew "pdfcpu"
-# Python version management
 brew "pyenv"
-# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.7"
-# Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Safe, concurrent, practical language
-brew "rust"
-# Cross-shell prompt for astronauts
 brew "starship"
-# Version control system designed to be a better CVS
 brew "subversion"
-# Very fast implementation of tldr in Rust
 brew "tealdeer"
-# Code-search similar to ack
 brew "the_silver_searcher"
-# Terminal multiplexer
 brew "tmux"
-# Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Watch files and take action when they change
 brew "watchman"
-# Internet file retriever
 brew "wget"
-# SDK
-brew "dart-lang/dart/dart"
-# Web browser focusing on privacy
-cask "brave-browser"
-# Serif font "New York" by Apple
 cask "font-new-york"
-# Developer targeted fonts with a high number of glyphs
 cask "font-sauce-code-pro-nerd-font"
 cask "git-credential-manager-core"
-# Web browser
-cask "google-chrome"
-# Free and open-source media player
-cask "iina"
-# Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
-# Open-source download manager
-cask "motrix"
-# App to write, plan, collaborate, and get organized
-cask "notion"
-# Control your tools with a few keystrokes
-cask "raycast"
-# Music streaming service
-cask "spotify"
-# Rime input method engine
-cask "squirrel"
-# Virtualizer for x86 hardware
-cask "virtualbox"
-# Open-source code editor
-cask "visual-studio-code"
