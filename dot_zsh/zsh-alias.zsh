@@ -28,6 +28,7 @@ alias pn="pnpm"
 alias pa="pnpm add"
 alias pad="pnpm add -D"
 alias po="pnpm outdated --long"
+alias pu="pnpm update --latest"
 # git
 alias gs="git status"
 function gc { git commit -m "$@"; }
