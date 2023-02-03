@@ -3,7 +3,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "arkav/lualine-lsp-progress" },
     opts = function()
       local icons = require("zw.config").icons
 
@@ -40,10 +39,6 @@ return {
             { "filename", path = 3 },
           },
           lualine_x = {
-            {
-              "lsp_progress",
-              display_components = { "lsp_client_name" },
-            },
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
