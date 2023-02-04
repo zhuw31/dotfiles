@@ -14,7 +14,6 @@
 	default = current
 [credential]
 	helper = /usr/local/bin/git-credential-manager
-	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://git.17bdc.com"]
 	provider = gitlab
