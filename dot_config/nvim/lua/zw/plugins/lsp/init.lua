@@ -30,7 +30,7 @@ return {
         dockerls = {},
         html = {},
         marksman = {},
-        sumneko_lua = {
+        lua_ls = {
           single_file_support = true,
           settings = {
             Lua = {
