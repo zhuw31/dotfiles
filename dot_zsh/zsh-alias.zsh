@@ -15,6 +15,7 @@ alias np="nr pstart"
 alias nc="nr compile"
 alias nb="nr build"
 alias nd="nr dev"
+alias nt="nr test"
 # yarn
 alias y="yarn"
 alias ya="yarn add"
