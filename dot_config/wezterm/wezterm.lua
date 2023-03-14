@@ -7,7 +7,7 @@ return {
     { family = "SauceCodePro Nerd Font", weight = "Bold" },
   }),
   color_scheme = "Catppuccin Frappe",
-  use_fancy_tab_bar = false,
+  enable_tab_bar = false,
   line_height = 1.2,
   window_padding = {
     bottom = 0,
