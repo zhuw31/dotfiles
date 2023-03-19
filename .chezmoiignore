@@ -7,3 +7,5 @@ README.md
 {{- if ne .chezmoi.os "linux" }}
 paru.conf
 {{- end}}
+
+lazy-lock.json
