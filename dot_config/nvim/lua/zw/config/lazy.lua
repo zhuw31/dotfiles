@@ -19,7 +19,6 @@ require("lazy").setup({
     { import = "zw.plugins.extras.lang.typescript" },
     { import = "zw.plugins.extras.lang.json" },
   },
-  defaults = { lazy = true },
   checker = { enabled = true },
   change_detection = {
     notify = false,
