@@ -6,7 +6,7 @@ return {
     { family = "SauceCodePro Nerd Font", weight = "Regular" },
     { family = "SauceCodePro Nerd Font", weight = "Bold" },
   }),
-  color_scheme = "tokyonight-day",
+  color_scheme = "nord",
   enable_tab_bar = false,
   line_height = 1.2,
   window_padding = {
