@@ -15,6 +15,7 @@ znap source zsh-users/zsh-syntax-highlighting
 export LANG="en_US.UTF-8"
 export EDITOR=nvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
+export TEALDEER_CONFIG_DIR="~/.config/tealdeer"
 
 source ~/.zsh/zsh-alias.zsh
 source ~/.zsh/z.sh
