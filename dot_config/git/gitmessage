@@ -4,31 +4,3 @@
 # [optional body]
 #
 # [optional footer(s)]
-#
-# Types:
-#   build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-#   ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-#   docs: Documentation only changes
-#   feat: A new feature
-#   fix: A bug fix
-#   perf: A code change that improves performance
-#   refactor: A code change that neither fixes a bug nor adds a feature
-#   style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-#   test: Adding missing tests or correcting existing tests
-#
-# The commit contains the following structural elements, to communicate int
-# ent to the consumers of your library:
-#
-# 1. fix: a commit of the type fix patches a bug in your codebase (this cor
-#    relates with PATCH in Semantic Versioning).
-# 2. feat: a commit of the type feat introduces a new feature to the codeba
-#    se (this correlates with MINOR in Semantic Versioning).
-# 3. BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appen
-#    ds a ! after the type/scope, introduces a breaking API change (correla
-#    ting with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part
-#    of commits of any type.
-# 4. types other than fix: and feat: are allowed, for example @commitlint/c
-#    onfig-conventional (based on the the Angular convention) recommends bu
-#    ild:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
-# 5. footers other than BREAKING CHANGE: <description> may be provided and 
-#    follow a convention similar to git trailer format.
