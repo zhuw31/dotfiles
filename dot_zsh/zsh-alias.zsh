@@ -32,7 +32,7 @@ alias po="pnpm outdated --long"
 alias pu="pnpm update --latest"
 # git
 alias gs="git status"
-function gc { git commit -m "$@"; }
+alias gc="git commit"
 alias gcb="git checkout -b"
 alias gp="git push"
 alias gl="git pull"
