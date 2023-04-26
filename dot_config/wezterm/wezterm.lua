@@ -9,7 +9,6 @@ end
 config.color_scheme = "nord"
 config.font_size = 16.0
 config.font = wezterm.font("SauceCodePro Nerd Font")
-config.enable_tab_bar = false
 config.line_height = 1.2
 config.window_padding = {
   right = 0,
