@@ -1,5 +1,5 @@
 # nvim
-alias v="lvim"
+alias vim="nvim"
 # lazygit
 alias lg="lazygit"
 # ls
