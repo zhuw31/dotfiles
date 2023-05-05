@@ -4,7 +4,6 @@
 [init]
   defaultBranch = main
 [core]
-	editor = "nvim"
 	ignorecase = true
 [commit]
     template = ~/.config/git/gitmessage

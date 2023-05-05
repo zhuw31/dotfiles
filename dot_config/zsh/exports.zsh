@@ -1,6 +1,6 @@
 # Misc
 export LANG="en_US.UTF-8"
-export EDITOR=nvim
+export EDITOR=lvim
 export HOMEBREW_BUNDLE_FILE="~/.Brewfile"
 export TEALDEER_CONFIG_DIR="~/.config/tealdeer"
 
