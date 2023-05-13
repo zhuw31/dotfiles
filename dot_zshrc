@@ -16,3 +16,5 @@ plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "agkozak/zsh-z"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
