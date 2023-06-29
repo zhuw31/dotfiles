@@ -42,6 +42,7 @@ alias gd="git diff"
 alias gst="git status"
 alias gfp="git fetch -p"
 alias glog="git log --oneline --pretty --graph"
+alias grm="git rebase main"
 # chrome debug
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
 # chezmoi
