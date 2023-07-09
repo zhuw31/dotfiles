@@ -139,7 +139,6 @@ lvim.plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
