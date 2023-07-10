@@ -6,7 +6,23 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme = "Catppuccin Frappe"
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+  if appearance:find("Dark") then
+    return "Catppuccin Frappe"
+  else
+    return "Catppuccin Latte"
+  end
+end
+
+config.color_scheme = scheme_for_appearance(get_appearance())
+
 config.font_size = 14.0
 config.font = wezterm.font_with_fallback({
   "Menlo",
@@ -23,5 +39,6 @@ config.window_padding = {
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.default_cursor_style = "SteadyUnderline"
 config.allow_square_glyphs_to_overflow_width = "Never"
+config.use_fancy_tab_bar = false
 
 return config
