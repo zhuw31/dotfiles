@@ -10,7 +10,7 @@
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.relativenumber = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 -- general
 lvim.log.level = "info"
