@@ -23,20 +23,20 @@ end
 
 config.color_scheme = scheme_for_appearance(get_appearance())
 
-config.font_size = 14.0
+config.font_size = 13.0
 config.font = wezterm.font_with_fallback({
-  "Menlo",
+  "Liga SFMono Nerd Font",
   "PingFang SC",
   "Apple Color Emoji",
 })
-config.line_height = 1.5
+
 config.window_padding = {
   bottom = 0,
   right = 0,
-  top = 8,
-  left = 8,
+  top = 0,
+  left = 0,
 }
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "RESIZE"
 config.default_cursor_style = "SteadyUnderline"
 config.allow_square_glyphs_to_overflow_width = "Never"
 config.use_fancy_tab_bar = false
