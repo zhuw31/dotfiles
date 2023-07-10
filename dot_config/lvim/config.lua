@@ -18,6 +18,7 @@ lvim.format_on_save = {
   enabled = true,
   timeout = 2000,
 }
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -26,8 +27,8 @@ lvim.leader = "space"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
-lvim.keys.normal_mode["<s-h>"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<s-l>"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<s-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<s-h>"] = ":BufferLineCyclePrev<CR>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["t"] = {
@@ -38,6 +39,10 @@ lvim.builtin.which_key.mappings["t"] = {
   f = { "<cmd>TypescriptFixAll<cr>", "TypescriptFixAll" },
   r = { "<cmd>TypescriptRenameFile<cr>", "TypescriptRenameFile" },
   g = { "<cmd>TypescriptGoToSourceDefinition<cr>", "TypescriptGoToSourceDefinition" },
+}
+lvim.builtin.which_key.mappings["z"] = {
+  name = "ZenMode",
+  o = { "<cmd>ZenMode<cr>", "ZenMode" },
 }
 
 -- Change theme settings
@@ -64,6 +69,8 @@ lvim.builtin.treesitter.auto_install = true
 
 -- -- generic LSP settings <https://www.lunarvim.org/docs/configuration/language-features/language-servers>
 
+require("lvim.lsp.manager").setup("marksman")
+require("lvim.lsp.manager").setup("eslint")
 -- --- disable automatic installation of servers
 -- lvim.lsp.installer.setup.automatic_installation = false
 
@@ -71,7 +78,7 @@ lvim.builtin.treesitter.auto_install = true
 ---see the full default list `:lua =lvim.lsp.automatic_configuration.skipped_servers`
 local lvim_lsp = require("lvim.lsp")
 local ts = require("typescript")
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver", "bashls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 local common_on_attach = lvim_lsp.common_on_attach
 local common_capabilities = lvim_lsp.common_capabilities()
 -- Typescript config using typescript.nvim
@@ -111,12 +118,7 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
   { name = "flake8", filetypes = { "python" } },
-  { name = "eslint_d" },
   { name = "luacheck" },
-})
-local code_actions = require("lvim.lsp.null-ls.code_actions")
-code_actions.setup({
-  { name = "eslint_d" },
 })
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/configuration/plugins/user-plugins>
