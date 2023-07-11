@@ -23,7 +23,8 @@ end
 
 config.color_scheme = scheme_for_appearance(get_appearance())
 
-config.font_size = 13.0
+config.font_size = 12.0
+config.line_height = 1.5
 config.font = wezterm.font_with_fallback({
   "Liga SFMono Nerd Font",
   "PingFang SC",
