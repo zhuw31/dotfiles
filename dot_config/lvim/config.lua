@@ -53,6 +53,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.terminal.open_mapping = "<c-t>"
 
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzf")
@@ -128,7 +129,7 @@ lvim.plugins = {
     name = "catppuccin",
     init = function()
       require("catppuccin").setup({
-        flavour = "frappe",
+        flavour = "latte",
       })
     end,
   },
