@@ -18,3 +18,7 @@ plug "agkozak/zsh-z"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fnm
+export PATH="/Users/zhuwei/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
