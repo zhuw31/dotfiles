@@ -33,9 +33,9 @@ config.font = wezterm.font_with_fallback({
 
 config.window_padding = {
   bottom = 0,
-  right = 0,
-  top = 0,
-  left = 0,
+  right = 10,
+  top = 8,
+  left = 10,
 }
 config.window_decorations = "RESIZE"
 config.default_cursor_style = "SteadyUnderline"
