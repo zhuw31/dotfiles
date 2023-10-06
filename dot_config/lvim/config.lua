@@ -46,7 +46,7 @@ lvim.builtin.which_key.mappings["z"] = {
 }
 
 -- Change theme settings
-lvim.colorscheme = "catppuccin"
+lvim.colorscheme = "nord"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -125,13 +125,7 @@ linters.setup({
 -- -- Additional Plugins <https://www.lunarvim.org/docs/configuration/plugins/user-plugins>
 lvim.plugins = {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    init = function()
-      require("catppuccin").setup({
-        flavour = "latte",
-      })
-    end,
+    "shaunsingh/nord.nvim",
   },
   {
     "jose-elias-alvarez/typescript.nvim",
